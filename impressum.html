@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum — Site Architects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Mono:ital,wght@0,300;0,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .legal-page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: calc(var(--nav-h) + 80px) 40px 120px;
+    }
+    .legal-page__back {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 12px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 64px;
+      transition: color .2s, gap .2s;
+    }
+    .legal-page__back:hover { color: var(--text); gap: 16px; }
+    .legal-page__back svg { width: 16px; transform: rotate(180deg); }
+    .legal-page__label {
+      font-size: 11px; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: block;
+    }
+    .legal-page h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 700; letter-spacing: -.03em; line-height: 1;
+      color: var(--text); margin-bottom: 64px;
+    }
+    .legal-page h2 {
+      font-size: 13px; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--accent);
+      margin: 48px 0 16px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-page p, .legal-page address {
+      font-size: 16px; color: var(--muted); line-height: 1.8;
+      font-style: normal; margin-bottom: 16px;
+    }
+    .legal-page a { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav__logo">
+    <img src="assets/img/logo.png" alt="Site Architects" class="nav__logo-img" />
+    <span>Site Architects</span>
+  </a>
+</nav>
+
+<main class="legal-page">
+  <a href="index.html" class="legal-page__back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M5 12h14M13 6l6 6-6 6"/>
+    </svg>
+    Zurück zur Website
+  </a>
+
+  <span class="legal-page__label">Rechtliches</span>
+  <h1>Impressum</h1>
+
+  <h2>Angaben gemäss § 5 TMG</h2>
+  <address>
+    Site Architects<br />
+    [Vorname Nachname]<br />
+    [Strasse und Hausnummer]<br />
+    [PLZ Ort]<br />
+    DACH-Region
+  </address>
+
+  <h2>Kontakt</h2>
+  <p>
+    E-Mail: <a href="mailto:sitearchitects.dn@gmail.com">sitearchitects.dn@gmail.com</a>
+  </p>
+
+  <h2>Verantwortlich für den Inhalt</h2>
+  <p>
+    [Vorname Nachname]<br />
+    [Adresse wie oben]
+  </p>
+
+  <h2>Haftung für Inhalte</h2>
+  <p>
+    Als Diensteanbieter sind wir gemäss § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.
+  </p>
+
+  <h2>Haftung für Links</h2>
+  <p>
+    Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+  </p>
+
+  <h2>Urheberrecht</h2>
+  <p>
+    Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+  </p>
+</main>
+
+</body>
+</html>

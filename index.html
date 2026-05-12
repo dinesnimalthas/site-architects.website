@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Site Architects — Boutique Webentwicklung aus Deutschland. Keine Templates. Keine Kompromisse." />
+  <title>Site Architects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ░░░░░░░░░░░░░░░  PRELOADER  ░░░░░░░░░░░░░░░ -->
+<div class="preloader" id="preloader">
+  <div class="pre__logo-wrap">
+    <img src="assets/img/logo.png" alt="Site Architects" class="pre__logo" id="preLogo" />
+    <svg class="pre__ring" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="preGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#1a6aab"/>
+          <stop offset="100%" stop-color="#2bc4b4"/>
+        </linearGradient>
+      </defs>
+      <circle class="pre__ring-track" cx="50" cy="50" r="46"/>
+      <circle class="pre__ring-fill"  cx="50" cy="50" r="46" id="preRing"/>
+    </svg>
+  </div>
+  <div class="pre__bottom">
+    <span class="pre__label">Wird geladen</span>
+    <span class="pre__count" id="preCount">0</span>
+  </div>
+</div>
+
+<!-- ░░░░░░░░░░░░░░░  CURSOR  ░░░░░░░░░░░░░░░ -->
+<div class="cursor" id="cursor">
+  <div class="cursor__dot" id="cursorDot"></div>
+  <div class="cursor__ring" id="cursorRing"></div>
+  <div class="cursor__label" id="cursorLabel"></div>
+</div>
+
+<!-- ░░░░░░░░░░░░░░░  NAV  ░░░░░░░░░░░░░░░ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav__logo mag-btn">
+    <img src="assets/img/logo.png" alt="SA" class="nav__logo-img" />
+    <span>Site Architects</span>
+  </a>
+  <div class="nav__right">
+    <a href="#contact" class="nav__cta mag-btn" data-cursor="Kontakt">Projekt starten</a>
+    <button class="nav__burger mag-btn" id="menuBtn" aria-label="Menü" data-cursor="Menü">
+      <span class="burger__line burger__line--top"></span>
+      <span class="burger__line burger__line--mid"></span>
+      <span class="burger__line burger__line--bot"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ░░░░░░░░░░░░░░░  FULLSCREEN MENU  ░░░░░░░░░░░░░░░ -->
+<div class="overlay-menu" id="overlayMenu">
+  <div class="overlay-menu__bg"></div>
+  <div class="overlay-menu__inner">
+    <nav class="overlay-menu__nav">
+      <a href="#work"     class="om__link mag-btn" data-menu-link><em>01</em><span>Projekte</span></a>
+      <a href="#about"    class="om__link mag-btn" data-menu-link><em>02</em><span>Über uns</span></a>
+      <a href="#services" class="om__link mag-btn" data-menu-link><em>03</em><span>Services</span></a>
+      <a href="#contact"  class="om__link mag-btn" data-menu-link><em>04</em><span>Kontakt</span></a>
+    </nav>
+    <div class="overlay-menu__footer">
+      <div class="om__status">
+        <span class="status-dot"></span>
+        Aktuell verfügbar — 1 Projekt-Slot offen
+      </div>
+      <div class="om__socials">
+        <a href="#" class="mag-btn">Instagram</a>
+        <a href="#" class="mag-btn">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ░░░░░░░░░░░░░░░  HERO  ░░░░░░░░░░░░░░░ -->
+<section class="hero" id="home">
+
+  <!-- Blueprint grid -->
+  <canvas class="hero__blueprint" id="blueprint"></canvas>
+
+  <!-- Main hero text -->
+  <div class="hero__text-block">
+    <div class="hero__hl-tag" data-reveal>
+      <span class="status-dot"></span>
+      Boutique Agentur
+    </div>
+    <div class="hero__headline">
+      <!-- Floating logo stamp -->
+      <div class="hero__logo-embed" data-reveal data-reveal-delay="400">
+        <img src="assets/img/logo.png" alt="" />
+      </div>
+
+      <div class="hero__hl-row hero__hl-row--1">
+        <span class="hero__hl-word hero__hl-word--site" data-reveal>SITE</span>
+      </div>
+      <div class="hero__hl-row hero__hl-row--2">
+        <span class="hero__hl-word" data-reveal data-reveal-delay="120">ARCHITECTS</span>
+      </div>
+    </div>
+    <div class="hero__sub" data-reveal data-reveal-delay="500">
+      <p>Keine Templates. Keine Kompromisse.<br>
+      Nur <strong>Webentwicklung auf Niveau.</strong></p>
+      <a href="#work" class="hero__cta mag-btn" data-cursor="Ansehen">
+        <span>Unsere Arbeit</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom info bar -->
+  <div class="hero__foot">
+    <div class="hero__foot-item">
+      <span class="hero__foot-label">Standort</span>
+      <span class="hero__foot-val">DACH-Region</span>
+    </div>
+    <div class="hero__foot-scroll">
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
+      <span>Scroll</span>
+    </div>
+    <div class="hero__foot-item hero__foot-item--right">
+      <span class="hero__foot-label">Status</span>
+      <span class="hero__foot-val hero__foot-val--active">
+        <span class="status-dot"></span>Verfügbar
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░░░░  MARQUEE  ░░░░░░░░░░░░░░░ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marqueeTrack">
+    <span>Web Design</span><span class="marquee__dot">◆</span>
+    <span>Webentwicklung</span><span class="marquee__dot">◆</span>
+    <span>E-Commerce</span><span class="marquee__dot">◆</span>
+    <span>Performance</span><span class="marquee__dot">◆</span>
+    <span>SEO</span><span class="marquee__dot">◆</span>
+    <span>Branding</span><span class="marquee__dot">◆</span>
+    <span>React</span><span class="marquee__dot">◆</span>
+    <span>Next.js</span><span class="marquee__dot">◆</span>
+    <span>Node.js</span><span class="marquee__dot">◆</span>
+    <!-- duplicate for loop -->
+    <span>Web Design</span><span class="marquee__dot">◆</span>
+    <span>Webentwicklung</span><span class="marquee__dot">◆</span>
+    <span>E-Commerce</span><span class="marquee__dot">◆</span>
+    <span>Performance</span><span class="marquee__dot">◆</span>
+    <span>SEO</span><span class="marquee__dot">◆</span>
+    <span>Branding</span><span class="marquee__dot">◆</span>
+    <span>React</span><span class="marquee__dot">◆</span>
+    <span>Next.js</span><span class="marquee__dot">◆</span>
+    <span>Node.js</span><span class="marquee__dot">◆</span>
+  </div>
+</div>
+
+<!-- ░░░░░░░░░░░░░░░  MANIFESTO / ABOUT  ░░░░░░░░░░░░░░░ -->
+<section class="manifesto" id="about">
+  <div class="manifesto__inner">
+    <div class="manifesto__left">
+      <div class="manifesto__label" data-reveal>Philosophie</div>
+      <div class="manifesto__nums">
+        <div class="m-num" data-reveal>
+          <strong>2</strong>
+          <span>Kunden.<br>Beide begeistert.</span>
+        </div>
+        <div class="m-num" data-reveal data-reveal-delay="100">
+          <strong>1</strong>
+          <span>Slot frei.<br>Für Sie?</span>
+        </div>
+        <div class="m-num" data-reveal data-reveal-delay="200">
+          <strong>∞</strong>
+          <span>Ehrgeiz.<br>Garantiert.</span>
+        </div>
+      </div>
+    </div>
+    <div class="manifesto__right">
+      <p class="manifesto__big" data-reveal>
+        Qualität entsteht nicht<br>
+        durch Volumen — sondern<br>
+        durch Fokus, Präzision<br>
+        und die Bereitschaft,<br>
+        <em>keine Abkürzungen</em>&nbsp;zu&nbsp;nehmen.
+      </p>
+      <p class="manifesto__body" data-reveal data-reveal-delay="200">
+        Site Architects ist eine Boutique-Webagentur aus der DACH-Region. 
+        Klein. Fokussiert. Jedes Projekt erhält 100 % unserer Kapazität — 
+        kein Outsourcing, keine Zwischenhändler, keine Füllaufträge. 
+        Entweder wir geben alles, oder wir nehmen den Auftrag nicht an.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░░░░  WORK  ░░░░░░░░░░░░░░░ -->
+<section class="work" id="work">
+  <div class="work__header">
+    <span class="work__label" data-reveal>Referenzen</span>
+    <h2 class="work__title" data-reveal>Ausgewählte<br><em>Projekte.</em></h2>
+  </div>
+
+  <div class="work__list">
+
+    <article class="work__item" data-cursor="Ansehen">
+      <div class="work__item-inner">
+        <span class="work__item-num">01</span>
+        <div class="work__item-info">
+          <h3>Gastronomie-Plattform</h3>
+          <p>Web-Auftritt, Online-Reservierung &amp; digitales Menü-Management</p>
+        </div>
+        <div class="work__item-tags">
+          <span>React</span><span>Node.js</span><span>MongoDB</span>
+        </div>
+        <div class="work__item-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </div>
+      </div>
+      <div class="work__item-preview">
+        <div class="wip__screen">
+          <div class="wip__bar"></div>
+          <div class="wip__hero" style="background:linear-gradient(135deg,#0d2137,#1a3a5c)">
+            <div class="wip__title"></div>
+            <div class="wip__sub"></div>
+          </div>
+          <div class="wip__grid">
+            <div></div><div></div><div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="work__item" data-cursor="Ansehen">
+      <div class="work__item-inner">
+        <span class="work__item-num">02</span>
+        <div class="work__item-info">
+          <h3>Fashion E-Commerce</h3>
+          <p>Online-Shop mit nachweisbarer Umsatzsteigerung im Halbjahr</p>
+        </div>
+        <div class="work__item-tags">
+          <span>Next.js</span><span>Shopify</span><span>Tailwind</span>
+        </div>
+        <div class="work__item-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </div>
+      </div>
+      <div class="work__item-preview">
+        <div class="wip__screen">
+          <div class="wip__bar"></div>
+          <div class="wip__hero" style="background:linear-gradient(135deg,#1a0a28,#38104a)">
+            <div class="wip__title"></div>
+            <div class="wip__sub"></div>
+          </div>
+          <div class="wip__grid wip__grid--2">
+            <div></div><div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="work__item work__item--cta">
+      <div class="work__item-inner">
+        <span class="work__item-num">03</span>
+        <div class="work__item-info">
+          <h3>Ihr Projekt</h3>
+          <p>Aktuell ein Slot verfügbar — sprechen Sie uns an.</p>
+        </div>
+        <a href="#contact" class="work__item-tags work__item-tags--link mag-btn">
+          Jetzt anfragen →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░░░░  SERVICES  ░░░░░░░░░░░░░░░ -->
+<section class="services" id="services">
+  <div class="services__inner">
+    <div class="services__left">
+      <span class="services__label" data-reveal>Was wir machen</span>
+      <h2 class="services__title" data-reveal>Unsere<br><em>Leistungen.</em></h2>
+      <p class="services__body" data-reveal data-reveal-delay="150">
+        Von der Konzeption bis zum Live-Gang — durchgehend in einer Hand. 
+        Kein Outsourcing. Kein Qualitätsverlust.
+      </p>
+    </div>
+    <div class="services__list">
+      <div class="srv__item" data-reveal>
+        <div class="srv__item-top">
+          <span class="srv__num">01</span>
+          <h3>Web Design & UI/UX</h3>
+          <div class="srv__toggle">+</div>
+        </div>
+        <div class="srv__body">
+          Individuelle Interfaces, die Ihre Markenidentität präzise transportieren. 
+          Kein Template, keine KI-generierten Lösungen. Jedes Design ist eine 
+          Massanfertigung — basierend auf Nutzerpsychologie und konkreten Zielen.
+        </div>
+      </div>
+      <div class="srv__item" data-reveal data-reveal-delay="80">
+        <div class="srv__item-top">
+          <span class="srv__num">02</span>
+          <h3>Webentwicklung</h3>
+          <div class="srv__toggle">+</div>
+        </div>
+        <div class="srv__body">
+          React, Next.js, Node.js — wir wählen die Technologie nach Ihren Anforderungen, 
+          nicht nach Trend. Sauber strukturierter Code, der auch in drei Jahren noch 
+          wartbar und erweiterbar ist.
+        </div>
+      </div>
+      <div class="srv__item" data-reveal data-reveal-delay="160">
+        <div class="srv__item-top">
+          <span class="srv__num">03</span>
+          <h3>E-Commerce</h3>
+          <div class="srv__toggle">+</div>
+        </div>
+        <div class="srv__body">
+          Online-Shops, die konvertieren. UX-optimiert, performance-getrieben, 
+          mit durchdachter Produktdarstellung. Wir bauen Shops, 
+          die den Unterschied zwischen Besucher und Käufer machen.
+        </div>
+      </div>
+      <div class="srv__item" data-reveal data-reveal-delay="240">
+        <div class="srv__item-top">
+          <span class="srv__num">04</span>
+          <h3>SEO & Performance</h3>
+          <div class="srv__toggle">+</div>
+        </div>
+        <div class="srv__body">
+          Lighthouse-Score 90+ ist für uns kein Bonus — er ist der Ausgangspunkt. 
+          Core Web Vitals, technisches SEO, strukturierte Daten und 
+          messbare Sichtbarkeit in Suchergebnissen.
+        </div>
+      </div>
+      <div class="srv__item" data-reveal data-reveal-delay="320">
+        <div class="srv__item-top">
+          <span class="srv__num">05</span>
+          <h3>Wartung & Support</h3>
+          <div class="srv__toggle">+</div>
+        </div>
+        <div class="srv__body">
+          Nach dem Launch beginnt die langfristige Beziehung. Sicherheits-Updates, 
+          Feature-Erweiterungen, Performance-Monitoring — 
+          wir bleiben verantwortlich für das, was wir gebaut haben.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░░░░  CONTACT  ░░░░░░░░░░░░░░░ -->
+<section class="contact" id="contact">
+  <div class="contact__inner">
+    <div class="contact__left">
+      <span class="contact__label" data-reveal>Kontakt</span>
+      <h2 class="contact__big" data-reveal>Bereit für ein<br>Projekt auf<br><em>höchstem Niveau?</em></h2>
+      <div class="contact__links" data-reveal data-reveal-delay="200">
+        <a href="mailto:hello@site-architects.de" class="contact__link mag-btn">
+          <span class="contact__link-label">E-Mail</span>
+          <span class="contact__link-val">hello@site-architects.de</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
+        <a href="#" class="contact__link mag-btn">
+          <span class="contact__link-label">Telefon</span>
+          <span class="contact__link-val">Auf Anfrage</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="contact__right">
+      <form class="contact__form" id="contactForm" novalidate>
+        <div class="cf__field">
+          <label for="cf-name">Ihr Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Ihr Name" required />
+        </div>
+        <div class="cf__field">
+          <label for="cf-email">E-Mail</label>
+          <input type="email" id="cf-email" name="email" placeholder="max@firma.de" required />
+        </div>
+        <div class="cf__field">
+          <label for="cf-project">Was brauchen Sie?</label>
+          <select id="cf-project" name="project">
+            <option value="">Wählen…</option>
+            <option>Website / Landing Page</option>
+              <option>Web-Applikation</option>
+              <option>E-Commerce</option>
+              <option>Redesign / Relaunch</option>
+              <option>Wartung &amp; Optimierung</option>
+          </select>
+        </div>
+        <div class="cf__field">
+          <label for="cf-msg">Ihr Projekt</label>
+          <textarea id="cf-msg" name="message" rows="4" placeholder="Schildern Sie uns Ihr Vorhaben…" required></textarea>
+        </div>
+        <button type="submit" class="cf__submit mag-btn" id="cfSubmit">
+          <span>Anfrage senden</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </button>
+        <div class="cf__success" id="cfSuccess">
+          Vielen Dank — wir melden uns innerhalb von 24 Stunden bei Ihnen.
+        </div>        <div class="cf__error" id="cfError">
+          Fehler beim Senden — bitte versuche es erneut oder schreib uns direkt.
+        </div>      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░░░░░░░░░░░░░  FOOTER  ░░░░░░░░░░░░░░░ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">
+      <img src="assets/img/logo.png" alt="Site Architects" />
+      <span>Site Architects</span>
+    </div>
+    <div class="footer__mid">
+      <span>Boutique Webentwicklung — Deutschland</span>
+    </div>
+    <div class="footer__right">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+      <span class="footer__year">© 2026 Site Architects</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
