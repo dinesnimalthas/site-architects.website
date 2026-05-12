@@ -173,7 +173,7 @@ function drawBlueprint() {
   const gridStep = 48;
 
   // Minor grid
-  ctx.strokeStyle = 'rgba(139,92,246,0.07)';
+  ctx.strokeStyle = 'rgba(201,169,110,0.07)';
   ctx.lineWidth = .5;
   for (let x = 0; x <= w; x += gridStep) {
     ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
@@ -183,7 +183,7 @@ function drawBlueprint() {
   }
 
   // Major grid (every 5)
-  ctx.strokeStyle = 'rgba(139,92,246,0.13)';
+  ctx.strokeStyle = 'rgba(201,169,110,0.13)';
   ctx.lineWidth = .8;
   for (let x = 0; x <= w; x += gridStep * 5) {
     ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
@@ -193,7 +193,7 @@ function drawBlueprint() {
   }
 
   // Cross markers
-  ctx.strokeStyle = 'rgba(139,92,246,0.28)';
+  ctx.strokeStyle = 'rgba(201,169,110,0.28)';
   ctx.lineWidth = 1;
   const crossSize = 6;
   for (let x = gridStep * 5; x < w; x += gridStep * 5) {
@@ -206,7 +206,7 @@ function drawBlueprint() {
   }
 
   // Diagonal accent line (blueprint style)
-  ctx.strokeStyle = 'rgba(139,92,246,0.09)';
+  ctx.strokeStyle = 'rgba(201,169,110,0.09)';
   ctx.lineWidth = 1;
   ctx.setLineDash([4, 12]);
   ctx.beginPath();
@@ -219,7 +219,7 @@ function drawBlueprint() {
 
   // Corner annotations
   ctx.font = '10px "DM Mono", monospace';
-  ctx.fillStyle = 'rgba(139,92,246,0.38)';
+  ctx.fillStyle = 'rgba(201,169,110,0.38)';
   const annotations = [
     [gridStep, gridStep * 3, 'A-01'],
     [w - gridStep * 4, gridStep * 3, 'B-01'],
@@ -228,7 +228,7 @@ function drawBlueprint() {
   ];
   annotations.forEach(([x, y, label]) => {
     // Small rectangle
-    ctx.strokeStyle = 'rgba(139,92,246,0.22)';
+    ctx.strokeStyle = 'rgba(201,169,110,0.22)';
     ctx.lineWidth = .8;
     ctx.strokeRect(x - 4, y - 14, 36, 18);
     ctx.fillText(label, x, y);
