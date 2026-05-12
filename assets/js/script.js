@@ -263,7 +263,7 @@ document.querySelectorAll('.srv__item').forEach(item => {
    3. Du erhältst einen Access Key per E-Mail
    4. Ersetze WEB3FORMS_ACCESS_KEY unten mit deinem Key
 ───────────────────────────────────────────────────── */
-const WEB3FORMS_ACCESS_KEY = 'WEB3FORMS_ACCESS_KEY'; // ← hier deinen Key einfügen
+const WEB3FORMS_ACCESS_KEY = '9736c20e-ec9a-40d1-bb36-e501ce869348';
 
 const contactForm = document.getElementById('contactForm');
 const cfSuccess   = document.getElementById('cfSuccess');
