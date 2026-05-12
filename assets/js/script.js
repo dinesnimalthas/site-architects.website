@@ -259,7 +259,7 @@ document.querySelectorAll('.srv__item').forEach(item => {
    
    SETUP (einmalig, kostenlos):
    1. Gehe zu https://web3forms.com
-   2. Gib "sitearchitects.dn@gmail.com" ein → "Create Access Key"
+   2. Gib "hello@sitearchitects.ch" ein → "Create Access Key"
    3. Du erhältst einen Access Key per E-Mail
    4. Ersetze WEB3FORMS_ACCESS_KEY unten mit deinem Key
 ───────────────────────────────────────────────────── */
