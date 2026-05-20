@@ -367,7 +367,7 @@ button { font-family:inherit; cursor:none; }
 .hero__hl-word {
   display:block;
   font-family:'Cormorant Garamond', Georgia, serif;
-  font-size:clamp(5rem, 16vw, 15rem);
+  font-size:clamp(5rem, 14vw, 13rem);
   font-weight:700; letter-spacing:-.04em; line-height:.88;
   color:var(--text);
   transform:translateY(110%);
