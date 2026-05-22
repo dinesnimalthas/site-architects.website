@@ -74,6 +74,8 @@ button { font-family:inherit; cursor:none; }
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+  display:inline-block;
+  padding-bottom:.1em;
 }
 
 /* ── Status dot ─────────────────────────────────────── */
@@ -546,6 +548,8 @@ button { font-family:inherit; cursor:none; }
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+  display:inline-block;
+  padding-bottom:.1em;
 }
 .manifesto__body {
   font-size:16px; color:var(--text-2); line-height:1.9;
@@ -584,6 +588,8 @@ button { font-family:inherit; cursor:none; }
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+  display:inline-block;
+  padding-bottom:.1em;
 }
 
 .work__list { max-width:1200px; margin:0 auto; display:flex; flex-direction:column; }
@@ -720,6 +726,8 @@ button { font-family:inherit; cursor:none; }
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+  display:inline-block;
+  padding-bottom:.1em;
 }
 .services__body { font-size:15px; color:var(--text-2); line-height:1.8; }
 
@@ -805,6 +813,8 @@ button { font-family:inherit; cursor:none; }
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-clip:text;
+  padding-bottom:.1em;
+  display:inline-block;
 }
 
 .contact__links { display:flex; flex-direction:column; gap:0; }
