@@ -1,488 +1,408 @@
 <!DOCTYPE html>
-<html lang="de" data-theme="dark">
+<html lang="de-CH">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Site Architects — Boutique Web-entwicklung aus der Schweiz. Keine Templates. Keine Kompromisse. sitearchitects.ch" />
+  <meta name="description" content="Site Architects ist ein Webstudio aus der Schweiz. Wir planen Websites wie Gebäude: erst der Plan, dann der Bau." />
 
-  <!-- Open Graph / Link-Vorschau -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://sitearchitects.ch/" />
-  <meta property="og:title"       content="Site Architects — Premium Web-entwicklung Schweiz" />
-  <meta property="og:description" content="Boutique Web-entwicklung aus der Schweiz. Keine Templates. Keine Kompromisse. Massgeschneiderte Websites, die begeistern." />
-  <meta property="og:image"       content="https://sitearchitects.ch/assets/img/logo.png" />
+  <meta property="og:title"       content="Site Architects – Webstudio aus der Schweiz" />
+  <meta property="og:description" content="Wir planen Websites wie Gebäude. Individuell gestaltet, von Hand programmiert." />
+  <meta property="og:image"       content="https://sitearchitects.ch/assets/img/work/snpperformance.jpg" />
   <meta property="og:locale"      content="de_CH" />
+  <meta name="twitter:card"       content="summary_large_image" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary" />
-  <meta name="twitter:title"       content="Site Architects — Premium Web-entwicklung Schweiz" />
-  <meta name="twitter:description" content="Boutique Web-entwicklung aus der Schweiz. Keine Templates. Keine Kompromisse." />
-  <meta name="twitter:image"       content="https://sitearchitects.ch/assets/img/logo.png" />
-  <title>Site Architects</title>
+  <title>Site Architects – Webstudio aus der Schweiz</title>
   <link rel="icon" type="image/png" href="assets/img/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-<!-- ░░░░░░░░░░░░░░░  PRELOADER  ░░░░░░░░░░░░░░░ -->
-<div class="preloader" id="preloader">
-  <div class="pre__logo-wrap">
-    <img src="assets/img/logo.png" alt="Site Architects" class="pre__logo" id="preLogo" />
-    <svg class="pre__ring" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="preGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%"   stop-color="#c9a96e"/>
-          <stop offset="100%" stop-color="#e4a038"/>
-        </linearGradient>
-      </defs>
-      <circle class="pre__ring-track" cx="50" cy="50" r="46"/>
-      <circle class="pre__ring-fill"  cx="50" cy="50" r="46" id="preRing"/>
-    </svg>
-  </div>
-  <div class="pre__bottom">
-    <span class="pre__label">Wird geladen</span>
-    <span class="pre__count" id="preCount">0</span>
-  </div>
-</div>
-
-<!-- ░░░░░░░░░░░░░░░  CURSOR  ░░░░░░░░░░░░░░░ -->
-<div class="cursor" id="cursor">
-  <div class="cursor__dot" id="cursorDot"></div>
-  <div class="cursor__ring" id="cursorRing"></div>
-  <div class="cursor__label" id="cursorLabel"></div>
-</div>
-
-<!-- ░░░░░░░░░░░░░░░  NAV  ░░░░░░░░░░░░░░░ -->
-<nav class="nav" id="nav">
-  <a href="#" class="nav__logo mag-btn">
-    <img src="assets/img/logo.png" alt="SA" class="nav__logo-img" />
-    <span>Site Architects</span>
-  </a>
-  <div class="nav__links">
-    <a href="#work" class="nav__link">Projekte</a>
-    <a href="#about" class="nav__link">Über uns</a>
-    <a href="#services" class="nav__link">Services</a>
-    <a href="#contact" class="nav__link">Kontakt</a>
-  </div>
-  <div class="nav__right">
-    <a href="#contact" class="nav__cta mag-btn" data-cursor="Kontakt">Projekt starten</a>
-    <button class="nav__burger mag-btn" id="menuBtn" aria-label="Menü" data-cursor="Menü">
-      <span class="burger__line burger__line--top"></span>
-      <span class="burger__line burger__line--mid"></span>
-      <span class="burger__line burger__line--bot"></span>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__logo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V10l9-7 9 7v11" /><path d="M3 21h18M12 3v18" /></svg>
+      Site Architects
+    </a>
+    <nav class="nav__links" aria-label="Hauptnavigation">
+      <a href="#projekte">Projekte</a>
+      <a href="#phasen">Ablauf</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#kontakt" class="btn btn--dark btn--sm nav__cta">Projekt besprechen</a>
+    <button class="nav__burger" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
     </button>
   </div>
-</nav>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation" hidden>
+    <a href="#projekte">Projekte</a>
+    <a href="#phasen">Ablauf</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#faq">FAQ</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
 
-<!-- ░░░░░░░░░░░░░░░  FULLSCREEN MENU  ░░░░░░░░░░░░░░░ -->
-<div class="overlay-menu" id="overlayMenu">
-  <div class="overlay-menu__bg"></div>
-  <div class="overlay-menu__inner">
-    <nav class="overlay-menu__nav">
-      <a href="#work"     class="om__link mag-btn" data-menu-link><em>01</em><span>Projekte</span></a>
-      <a href="#about"    class="om__link mag-btn" data-menu-link><em>02</em><span>Über uns</span></a>
-      <a href="#services" class="om__link mag-btn" data-menu-link><em>03</em><span>Services</span></a>
-      <a href="#contact"  class="om__link mag-btn" data-menu-link><em>04</em><span>Kontakt</span></a>
-    </nav>
-    <div class="overlay-menu__footer">
-      <div class="om__status">
-        <span class="status-dot"></span>
-        Aktuell verfügbar — 1 Projekt-Slot offen
-      </div>
-      <div class="om__socials">
-        <a href="#" class="mag-btn">Instagram</a>
-        <a href="#" class="mag-btn">LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</div>
+<main id="top">
 
-<!-- ░░░░░░░░░░░░░░░  HERO  ░░░░░░░░░░░░░░░ -->
-<section class="hero" id="home">
-
-  <!-- Blueprint grid -->
-  <canvas class="hero__blueprint" id="blueprint"></canvas>
-
-  <!-- Main hero text -->
-  <div class="hero__text-block">
-
-    <div class="hero__hl-tag" data-reveal>
-      Boutique Web-entwicklung &nbsp;·&nbsp; DACH-Region
+  <!-- ══ HERO ══════════════════════════════════════ -->
+  <section class="hero wrap">
+    <div class="hero__meta mono">
+      <span>Webstudio · Schweiz</span>
+      <span>Plan Nr. SA-01</span>
     </div>
-    <div class="hero__headline">
-      <div class="hero__hl-row hero__hl-row--1">
-        <span class="hero__hl-word hero__hl-word--site" data-reveal>SITE</span>
-      </div>
-      <div class="hero__hl-row hero__hl-row--2">
-        <span class="hero__hl-word" data-reveal data-reveal-delay="120">ARCHITECTS</span>
-      </div>
-    </div>
-    <div class="hero__sub" data-reveal data-reveal-delay="500">
-      <p>Keine Templates. Keine Kompromisse.<br>
-      Nur <strong>Web-entwicklung auf Niveau.</strong></p>
-      <a href="#work" class="hero__cta mag-btn" data-cursor="Ansehen">
-        <span>Unsere Arbeit</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-
-  <!-- Bottom info bar -->
-  <div class="hero__foot">
-    <div class="hero__foot-item">
-      <span class="hero__foot-label">Standort</span>
-      <span class="hero__foot-val">DACH-Region</span>
-    </div>
-    <div class="hero__foot-scroll">
-      <div class="scroll-track"><div class="scroll-thumb"></div></div>
-      <span>Scroll</span>
-    </div>
-    <div class="hero__foot-item hero__foot-item--right">
-      <span class="hero__foot-label">Status</span>
-      <span class="hero__foot-val hero__foot-val--active">
-        <span class="status-dot"></span>Verfügbar
-      </span>
-    </div>
-  </div>
-</section>
-
-<!-- ░░░░░░░░░░░░░░░  MARQUEE  ░░░░░░░░░░░░░░░ -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track" id="marqueeTrack">
-    <span>Web Design</span><span class="marquee__dot">◆</span>
-    <span>Web-entwicklung</span><span class="marquee__dot">◆</span>
-    <span>E-Commerce</span><span class="marquee__dot">◆</span>
-    <span>Performance</span><span class="marquee__dot">◆</span>
-    <span>SEO</span><span class="marquee__dot">◆</span>
-    <span>Branding</span><span class="marquee__dot">◆</span>
-    <span>React</span><span class="marquee__dot">◆</span>
-    <span>Next.js</span><span class="marquee__dot">◆</span>
-    <span>Node.js</span><span class="marquee__dot">◆</span>
-    <!-- duplicate for loop -->
-    <span>Web Design</span><span class="marquee__dot">◆</span>
-    <span>Web-entwicklung</span><span class="marquee__dot">◆</span>
-    <span>E-Commerce</span><span class="marquee__dot">◆</span>
-    <span>Performance</span><span class="marquee__dot">◆</span>
-    <span>SEO</span><span class="marquee__dot">◆</span>
-    <span>Branding</span><span class="marquee__dot">◆</span>
-    <span>React</span><span class="marquee__dot">◆</span>
-    <span>Next.js</span><span class="marquee__dot">◆</span>
-    <span>Node.js</span><span class="marquee__dot">◆</span>
-  </div>
-</div>
-
-<!-- ░░░░░░░░░░░░░░░  MANIFESTO / ABOUT  ░░░░░░░░░░░░░░░ -->
-<section class="manifesto" id="about">
-  <div class="manifesto__inner">
-    <div class="manifesto__left">
-      <div class="manifesto__label" data-reveal>Philosophie</div>
-      <div class="manifesto__nums">
-        <div class="m-num" data-reveal>
-          <strong>2</strong>
-          <span>Kunden.<br>Beide begeistert.</span>
-        </div>
-        <div class="m-num" data-reveal data-reveal-delay="100">
-          <strong>1</strong>
-          <span>Slot frei.<br>Für Sie?</span>
-        </div>
-        <div class="m-num" data-reveal data-reveal-delay="200">
-          <strong>∞</strong>
-          <span>Ehrgeiz.<br>Garantiert.</span>
-        </div>
-      </div>
-    </div>
-    <div class="manifesto__right">
-      <p class="manifesto__big" data-reveal>
-        Qualität entsteht nicht<br>
-        durch Volumen — sondern<br>
-        durch Fokus, Präzision<br>
-        und die Bereitschaft,<br>
-        <em>keine Abkürzungen</em>&nbsp;zu&nbsp;nehmen.
+    <h1 class="hero__title">Wir planen Websites <span class="hero__title-2">wie Gebäude.</span></h1>
+    <div class="hero__row">
+      <p class="hero__lead">
+        Erst der Plan, dann der Bau. Site Architects gestaltet und programmiert Websites
+        für KMU, Vereine und Selbstständige. Sie sprechen direkt mit der Person, die Ihre Seite baut.
       </p>
-      <p class="manifesto__body" data-reveal data-reveal-delay="200">
-        Site Architects ist eine Boutique-Webagentur aus der DACH-Region. 
-        Klein. Fokussiert. Jedes Projekt erhält 100 % unserer Kapazität — 
-        kein Outsourcing, keine Zwischenhändler, keine Füllaufträge. 
-        Entweder wir geben alles, oder wir nehmen den Auftrag nicht an.
-      </p>
+      <div class="hero__actions">
+        <a href="#kontakt" class="btn btn--dark">Projekt besprechen</a>
+        <a href="#projekte" class="btn btn--ghost">Projekte ansehen</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ░░░░░░░░░░░░░░░  WORK  ░░░░░░░░░░░░░░░ -->
-<section class="work" id="work">
-  <div class="work__header">
-    <span class="work__label" data-reveal>Referenzen</span>
-    <h2 class="work__title" data-reveal>Ausgewählte<br><em>Projekte.</em></h2>
-  </div>
+  <!-- ══ PLAN → BAU (scroll) ═══════════════════════ -->
+  <section class="build" id="build" aria-label="Vom Plan zur fertigen Website am Beispiel SNP Performance">
+    <div class="build__sticky">
+      <div class="wrap build__bar mono">
+        <span class="build__phase"><i class="build__dot"></i>Phase: <b id="buildPhase">Plan</b></span>
+        <span class="build__progress"><span id="buildPct">0</span>% gebaut</span>
+        <span class="build__ref">Beispiel: snpperformance.ch</span>
+      </div>
 
-  <div class="work__list">
+      <div class="wrap">
+        <div class="build__frame" id="buildFrame">
+          <img class="build__real" src="assets/img/work/snpperformance.jpg" alt="Fertige Website von SNP Performance" width="1440" height="900" />
 
-    <article class="work__item" data-cursor="Ansehen" onclick="window.open('https://snpperformance.ch','_blank')">
-      <div class="work__item-inner">
-        <span class="work__item-num">01</span>
-        <div class="work__item-info">
-          <h3>SNP Performance</h3>
-          <p>Autoveredelung — CarPlay-Integration, Tuning &amp; individuelle Auto-Upgrades</p>
-        </div>
-        <div class="work__item-tags">
-          <span>Webdesign</span><span>Fahrzeugstyling</span><span>SEO</span>
-        </div>
-        <div class="work__item-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M7 17L17 7M17 7H7M17 7v10"/>
-          </svg>
+          <div class="build__plan" id="buildPlan" aria-hidden="true">
+            <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <path d="M24 0H0v24" class="p-grid" />
+                </pattern>
+                <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <path d="M0 0v14" class="p-hatch" />
+                </pattern>
+                <marker id="tick" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+                  <path d="M2 8L8 2" class="p-dim" />
+                </marker>
+              </defs>
+
+              <rect width="1440" height="900" class="p-paper" />
+              <rect width="1440" height="900" fill="url(#grid)" />
+
+              <!-- Navigation -->
+              <line x1="0" y1="66" x2="1440" y2="66" class="p-line" />
+              <rect x="44" y="14" width="38" height="38" rx="8" class="p-line" />
+              <rect x="94" y="22" width="190" height="20" class="p-block" />
+              <rect x="636" y="27" width="82" height="12" class="p-block" />
+              <rect x="746" y="27" width="60" height="12" class="p-block" />
+              <rect x="834" y="27" width="28" height="12" class="p-block" />
+              <rect x="890" y="27" width="56" height="12" class="p-block" />
+              <rect x="1299" y="14" width="98" height="38" rx="19" class="p-line" />
+
+              <!-- Eyebrow + Headline -->
+              <rect x="150" y="186" width="386" height="12" class="p-block p-block--accent" />
+              <rect x="150" y="214" width="424" height="366" class="p-line" />
+              <path d="M150 214L574 580M574 214L150 580" class="p-thin" />
+              <text x="362" y="404" class="p-label" text-anchor="middle">H1 · HEADLINE</text>
+
+              <!-- Text -->
+              <rect x="150" y="620" width="488" height="14" class="p-block" />
+              <rect x="150" y="652" width="460" height="14" class="p-block" />
+              <rect x="150" y="684" width="92" height="14" class="p-block" />
+
+              <!-- Buttons -->
+              <rect x="150" y="740" width="180" height="48" rx="24" class="p-line p-fill-accent" />
+              <rect x="344" y="740" width="224" height="48" rx="24" class="p-line" />
+
+              <!-- Bildfläche -->
+              <rect x="751" y="262" width="538" height="660" rx="24" fill="url(#hatch)" class="p-line" />
+              <rect x="931" y="530" width="178" height="40" class="p-paper" />
+              <text x="1020" y="556" class="p-label" text-anchor="middle">BILDFLÄCHE</text>
+
+              <!-- Masslinien -->
+              <line x1="751" y1="232" x2="1289" y2="232" class="p-dim" marker-start="url(#tick)" marker-end="url(#tick)" />
+              <line x1="751" y1="222" x2="751" y2="252" class="p-dim" />
+              <line x1="1289" y1="222" x2="1289" y2="252" class="p-dim" />
+              <rect x="990" y="220" width="60" height="24" class="p-paper" />
+              <text x="1020" y="238" class="p-dimtext" text-anchor="middle">538</text>
+
+              <line x1="112" y1="214" x2="112" y2="580" class="p-dim" marker-start="url(#tick)" marker-end="url(#tick)" />
+              <line x1="102" y1="214" x2="132" y2="214" class="p-dim" />
+              <line x1="102" y1="580" x2="132" y2="580" class="p-dim" />
+              <rect x="98" y="378" width="28" height="52" class="p-paper" />
+              <text x="112" y="404" class="p-dimtext" text-anchor="middle" transform="rotate(-90 112 404)">366</text>
+
+              <line x1="150" y1="816" x2="568" y2="816" class="p-dim" marker-start="url(#tick)" marker-end="url(#tick)" />
+              <rect x="330" y="804" width="58" height="24" class="p-paper" />
+              <text x="359" y="822" class="p-dimtext" text-anchor="middle">418</text>
+
+              <!-- Positionsmarken -->
+              <g class="p-callout"><circle cx="330" cy="98" r="16" /><text x="330" y="104" text-anchor="middle">A</text></g>
+              <text x="356" y="104" class="p-note">Navigation</text>
+              <g class="p-callout"><circle cx="610" cy="236" r="16" /><text x="610" y="242" text-anchor="middle">B</text></g>
+              <text x="636" y="242" class="p-note">Headline</text>
+              <g class="p-callout"><circle cx="610" cy="764" r="16" /><text x="610" y="770" text-anchor="middle">C</text></g>
+              <text x="636" y="770" class="p-note">Anfrage</text>
+              <g class="p-callout"><circle cx="1320" cy="300" r="16" /><text x="1320" y="306" text-anchor="middle">D</text></g>
+              <text x="1346" y="306" class="p-note">Bild</text>
+            </svg>
+          </div>
+
+          <div class="build__scan" id="buildScan" aria-hidden="true"><span class="mono">Plan → Bau</span></div>
         </div>
       </div>
-      <div class="work__item-preview">
-        <div class="wip__screen">
-          <div class="wip__bar"></div>
-          <div class="wip__hero" style="background:linear-gradient(135deg,#111111,#2e2e2e)">
-            <div class="wip__title"></div>
-            <div class="wip__sub"></div>
-          </div>
-          <div class="wip__grid">
-            <div></div><div></div><div></div>
-          </div>
-        </div>
-      </div>
-    </article>
+    </div>
+  </section>
 
-    <article class="work__item" data-cursor="Ansehen" onclick="window.open('https://scvanavil.ch','_blank')">
-      <div class="work__item-inner">
-        <span class="work__item-num">02</span>
-        <div class="work__item-info">
-          <h3>SC Vanavil</h3>
-          <p>Fussballverein — Vereinswebsite mit Spielplan, News &amp; Mannschaftsporträts</p>
-        </div>
-        <div class="work__item-tags">
-          <span>Webdesign</span><span>CMS</span><span>Sportverein</span>
-        </div>
-        <div class="work__item-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M7 17L17 7M17 7H7M17 7v10"/>
-          </svg>
-        </div>
-      </div>
-      <div class="work__item-preview">
-        <div class="wip__screen">
-          <div class="wip__bar"></div>
-          <div class="wip__hero" style="background:linear-gradient(135deg,#071510,#0e2b1a)">
-            <div class="wip__title"></div>
-            <div class="wip__sub"></div>
-          </div>
-          <div class="wip__grid wip__grid--2">
-            <div></div><div></div>
-          </div>
-        </div>
-      </div>
-    </article>
+  <!-- ══ PROJEKTE ══════════════════════════════════ -->
+  <section class="section wrap" id="projekte">
+    <div class="section__head">
+      <p class="eyebrow mono"><span>01</span> Projekte</p>
+      <h2>Gebaut und bewohnt.</h2>
+    </div>
 
-    <article class="work__item" data-cursor="Ansehen" onclick="window.open('https://nnarchitektur.ch','_blank')">
-      <div class="work__item-inner">
-        <span class="work__item-num">03</span>
-        <div class="work__item-info">
-          <h3>NN Architektur</h3>
-          <p>Architekturbüro — Portfoliowebsite mit Projekten, Leistungen &amp; Kontakt</p>
-        </div>
-        <div class="work__item-tags">
-          <span>Webdesign</span><span>Architektur</span><span>Portfolio</span>
-        </div>
-        <div class="work__item-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M7 17L17 7M17 7H7M17 7v10"/>
-          </svg>
-        </div>
-      </div>
-      <div class="work__item-preview">
-        <div class="wip__screen">
-          <div class="wip__bar"></div>
-          <div class="wip__hero" style="background:linear-gradient(135deg,#1a1a18,#2e2c26)">
-            <div class="wip__title"></div>
-            <div class="wip__sub"></div>
+    <div class="stack">
+      <article class="sheet">
+        <a class="sheet__inner" href="https://snpperformance.ch" target="_blank" rel="noopener">
+          <div class="sheet__info">
+            <h3>SNP Performance</h3>
+            <dl class="titleblock">
+              <div><dt>Bauherr</dt><dd>SNP Performance</dd></div>
+              <div><dt>Branche</dt><dd>Fahrzeugveredelung, CarPlay, Tuning</dd></div>
+              <div><dt>Leistungen</dt><dd>Webdesign, Entwicklung, SEO</dd></div>
+              <div><dt>Adresse</dt><dd>snpperformance.ch ↗</dd></div>
+            </dl>
           </div>
-          <div class="wip__grid">
-            <div></div><div></div><div></div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <div class="work__item work__item--cta">
-      <div class="work__item-inner">
-        <span class="work__item-num">04</span>
-        <div class="work__item-info">
-          <h3>Ihr Projekt</h3>
-          <p>Aktuell ein Slot verfügbar — sprechen Sie uns an.</p>
-        </div>
-        <a href="#contact" class="work__item-tags work__item-tags--link mag-btn">
-          Jetzt anfragen →
+          <figure class="sheet__shot"><img src="assets/img/work/snpperformance.jpg" alt="Startseite von SNP Performance" width="1440" height="900" loading="lazy" /></figure>
         </a>
-      </div>
-    </div>
+      </article>
 
-  </div>
-</section>
-
-<!-- ░░░░░░░░░░░░░░░  SERVICES  ░░░░░░░░░░░░░░░ -->
-<section class="services" id="services">
-  <div class="services__inner">
-    <div class="services__left">
-      <span class="services__label" data-reveal>Was wir machen</span>
-      <h2 class="services__title" data-reveal>Unsere<br><em>Leistungen.</em></h2>
-      <p class="services__body" data-reveal data-reveal-delay="150">
-        Von der Konzeption bis zum Live-Gang — durchgehend in einer Hand. 
-        Kein Outsourcing. Kein Qualitätsverlust.
-      </p>
-    </div>
-    <div class="services__list">
-      <div class="srv__item" data-reveal>
-        <div class="srv__item-top">
-          <span class="srv__num">01</span>
-          <h3>Web Design & UI/UX</h3>
-          <div class="srv__toggle">+</div>
-        </div>
-        <div class="srv__body">
-          Individuelle Interfaces, die Ihre Markenidentität präzise transportieren. 
-          Kein Template, keine KI-generierten Lösungen. Jedes Design ist eine 
-          Massanfertigung — basierend auf Nutzerpsychologie und konkreten Zielen.
-        </div>
-      </div>
-      <div class="srv__item" data-reveal data-reveal-delay="80">
-        <div class="srv__item-top">
-          <span class="srv__num">02</span>
-          <h3>Web-entwicklung</h3>
-          <div class="srv__toggle">+</div>
-        </div>
-        <div class="srv__body">
-          React, Next.js, Node.js — wir wählen die Technologie nach Ihren Anforderungen, 
-          nicht nach Trend. Sauber strukturierter Code, der auch in drei Jahren noch 
-          wartbar und erweiterbar ist.
-        </div>
-      </div>
-      <div class="srv__item" data-reveal data-reveal-delay="160">
-        <div class="srv__item-top">
-          <span class="srv__num">03</span>
-          <h3>E-Commerce</h3>
-          <div class="srv__toggle">+</div>
-        </div>
-        <div class="srv__body">
-          Online-Shops, die konvertieren. UX-optimiert, performance-getrieben, 
-          mit durchdachter Produktdarstellung. Wir bauen Shops, 
-          die den Unterschied zwischen Besucher und Käufer machen.
-        </div>
-      </div>
-      <div class="srv__item" data-reveal data-reveal-delay="240">
-        <div class="srv__item-top">
-          <span class="srv__num">04</span>
-          <h3>SEO & Performance</h3>
-          <div class="srv__toggle">+</div>
-        </div>
-        <div class="srv__body">
-          Lighthouse-Score 90+ ist für uns kein Bonus — er ist der Ausgangspunkt. 
-          Core Web Vitals, technisches SEO, strukturierte Daten und 
-          messbare Sichtbarkeit in Suchergebnissen.
-        </div>
-      </div>
-      <div class="srv__item" data-reveal data-reveal-delay="320">
-        <div class="srv__item-top">
-          <span class="srv__num">05</span>
-          <h3>Wartung & Support</h3>
-          <div class="srv__toggle">+</div>
-        </div>
-        <div class="srv__body">
-          Nach dem Launch beginnt die langfristige Beziehung. Sicherheits-Updates, 
-          Feature-Erweiterungen, Performance-Monitoring — 
-          wir bleiben verantwortlich für das, was wir gebaut haben.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ░░░░░░░░░░░░░░░  CONTACT  ░░░░░░░░░░░░░░░ -->
-<section class="contact" id="contact">
-  <div class="contact__inner">
-    <div class="contact__left">
-      <span class="contact__label" data-reveal>Kontakt</span>
-      <h2 class="contact__big" data-reveal>Bereit für ein<br>Projekt auf<br><em>höchstem Niveau?</em></h2>
-      <div class="contact__links" data-reveal data-reveal-delay="200">
-        <a href="mailto:sitearchitects.dn@gmail.com" class="contact__link mag-btn">
-          <span class="contact__link-label">E-Mail</span>
-          <span class="contact__link-val">sitearchitects.dn@gmail.com</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M7 17L17 7M17 7H7M17 7v10"/>
-          </svg>
+      <article class="sheet">
+        <a class="sheet__inner" href="https://scvanavil.ch" target="_blank" rel="noopener">
+          <div class="sheet__info">
+            <h3>SC Vanavil Luzern</h3>
+            <dl class="titleblock">
+              <div><dt>Bauherr</dt><dd>SC Vanavil Luzern</dd></div>
+              <div><dt>Branche</dt><dd>Fussballverein</dd></div>
+              <div><dt>Leistungen</dt><dd>Webdesign, Entwicklung, CMS</dd></div>
+              <div><dt>Adresse</dt><dd>scvanavil.ch ↗</dd></div>
+            </dl>
+          </div>
+          <figure class="sheet__shot"><img src="assets/img/work/scvanavil.jpg" alt="Startseite von SC Vanavil Luzern" width="1440" height="900" loading="lazy" /></figure>
         </a>
-        <a href="#" class="contact__link mag-btn">
-          <span class="contact__link-label">Telefon</span>
-          <span class="contact__link-val">Auf Anfrage</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M7 17L17 7M17 7H7M17 7v10"/>
-          </svg>
+      </article>
+
+      <article class="sheet">
+        <a class="sheet__inner" href="https://nnarchitektur.ch" target="_blank" rel="noopener">
+          <div class="sheet__info">
+            <h3>NN Architektur</h3>
+            <dl class="titleblock">
+              <div><dt>Bauherr</dt><dd>NN Architektur</dd></div>
+              <div><dt>Branche</dt><dd>Architekturbüro</dd></div>
+              <div><dt>Leistungen</dt><dd>Webdesign, Portfolio</dd></div>
+              <div><dt>Adresse</dt><dd>nnarchitektur.ch ↗</dd></div>
+            </dl>
+          </div>
+          <figure class="sheet__shot sheet__shot--type"><span>NN Architektur</span></figure>
         </a>
+      </article>
+
+      <article class="sheet sheet--cta">
+        <a class="sheet__inner" href="#kontakt">
+          <div class="sheet__info">
+            <h3>Ihr Projekt</h3>
+            <p>Der nächste Plan kann Ihrer sein. Erzählen Sie uns, was Sie vorhaben.</p>
+            <span class="btn btn--light">Projekt besprechen</span>
+          </div>
+          <figure class="sheet__shot sheet__shot--empty" aria-hidden="true">
+            <svg viewBox="0 0 400 250" preserveAspectRatio="none"><rect x="1" y="1" width="398" height="248" /><path d="M1 1L399 249M399 1L1 249" /></svg>
+          </figure>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══ PHASEN ════════════════════════════════════ -->
+  <section class="section section--tint" id="phasen">
+    <div class="wrap">
+      <div class="section__head section__head--split">
+        <div>
+          <p class="eyebrow mono"><span>02</span> Ablauf</p>
+          <h2>Vier Phasen. Wie auf dem Bau.</h2>
+        </div>
+        <p class="section__intro">
+          Architekten bauen nicht ohne Plan, und wir auch nicht. Jede Phase hat ein klares Ergebnis,
+          das Sie sehen und freigeben, bevor es weitergeht.
+        </p>
+      </div>
+
+      <ol class="phases">
+        <li class="phase">
+          <span class="phase__code mono">Phase 1</span>
+          <h3>Vorstudie</h3>
+          <p>Erstgespräch zu Zielen, Zielgruppe und Inhalten. Wir schauen uns Ihre heutige Seite und Ihr Umfeld an.</p>
+          <p class="phase__out mono">Ergebnis: Offerte mit Festpreis</p>
+        </li>
+        <li class="phase">
+          <span class="phase__code mono">Phase 2</span>
+          <h3>Projektierung</h3>
+          <p>Struktur, Seitenplan und Design. Sie sehen früh, wie die Seite aussehen wird, und geben Feedback.</p>
+          <p class="phase__out mono">Ergebnis: Freigegebener Entwurf</p>
+        </li>
+        <li class="phase">
+          <span class="phase__code mono">Phase 3</span>
+          <h3>Realisierung</h3>
+          <p>Programmierung von Hand, Inhalte einpflegen, auf allen Geräten testen und Ladezeiten optimieren.</p>
+          <p class="phase__out mono">Ergebnis: Website online</p>
+        </li>
+        <li class="phase">
+          <span class="phase__code mono">Phase 4</span>
+          <h3>Bewirtschaftung</h3>
+          <p>Updates, Anpassungen und neue Inhalte. Ein fester Ansprechpartner, der Ihre Website kennt.</p>
+          <p class="phase__out mono">Ergebnis: Seite bleibt aktuell</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══ LEISTUNGEN ════════════════════════════════ -->
+  <section class="section wrap" id="leistungen">
+    <div class="section__head">
+      <p class="eyebrow mono"><span>03</span> Leistungen</p>
+      <h2>Was wir bauen.</h2>
+    </div>
+
+    <ul class="rows">
+      <li class="row">
+        <span class="row__num mono">A</span>
+        <h3>Websites</h3>
+        <p>Für Firmen, Vereine und Selbstständige. Individuell gestaltet, ohne Baukasten.</p>
+      </li>
+      <li class="row">
+        <span class="row__num mono">B</span>
+        <h3>Redesigns</h3>
+        <p>Ihre bestehende Seite, neu geplant. Wir behalten, was funktioniert, und bauen den Rest neu.</p>
+      </li>
+      <li class="row">
+        <span class="row__num mono">C</span>
+        <h3>Online-Shops</h3>
+        <p>Übersichtliche Produktseiten und ein Bestellablauf, der nicht im Weg steht.</p>
+      </li>
+      <li class="row">
+        <span class="row__num mono">D</span>
+        <h3>SEO und Tempo</h3>
+        <p>Saubere Struktur, Metadaten und kurze Ladezeiten, damit man Sie auf Google findet.</p>
+      </li>
+      <li class="row">
+        <span class="row__num mono">E</span>
+        <h3>Betreuung</h3>
+        <p>Änderungen, Updates und neue Inhalte, auch lange nach dem Launch.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ══ FAQ ═══════════════════════════════════════ -->
+  <section class="section section--tint" id="faq">
+    <div class="wrap faq-wrap">
+      <div>
+        <p class="eyebrow mono"><span>04</span> FAQ</p>
+        <h2>Häufige Fragen</h2>
+        <p class="section__intro">Ihre Frage ist nicht dabei? Schreiben Sie uns, wir antworten innert 24 Stunden.</p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Was kostet eine Website?</summary>
+          <p>Das hängt vom Umfang ab, also von Anzahl Seiten, Funktionen und Inhalten. Nach dem Erstgespräch erhalten Sie eine Offerte mit Festpreis, damit Sie vorher wissen, woran Sie sind.</p>
+        </details>
+        <details>
+          <summary>Wie lange dauert ein Projekt?</summary>
+          <p>Eine kleinere Website ist meist in wenigen Wochen online. Den genauen Zeitplan legen wir im Erstgespräch fest. Er hängt auch davon ab, wie schnell Texte und Bilder bereitstehen.</p>
+        </details>
+        <details>
+          <summary>Kann ich Inhalte später selbst ändern?</summary>
+          <p>Ja, wenn Sie das möchten. Wir können ein einfaches CMS einrichten, mit dem Sie Texte, Bilder oder News selbst pflegen. Alternativ übernehmen wir Änderungen für Sie.</p>
+        </details>
+        <details>
+          <summary>Verwenden Sie Vorlagen oder Baukästen?</summary>
+          <p>Nein. Jede Website wird für das jeweilige Projekt gestaltet und programmiert. So passt sie zu Ihrer Marke und bleibt schnell.</p>
+        </details>
+        <details>
+          <summary>Übernehmen Sie auch ein Redesign meiner bestehenden Seite?</summary>
+          <p>Ja. Wir prüfen zuerst, was an Ihrer aktuellen Seite funktioniert und was nicht, und übernehmen bestehende Inhalte, wo es sinnvoll ist.</p>
+        </details>
       </div>
     </div>
-    <div class="contact__right">
-      <form class="contact__form" id="contactForm" novalidate>
-        <div class="cf__field">
-          <label for="cf-name">Ihr Name</label>
-          <input type="text" id="cf-name" name="name" placeholder="Ihr Name" required />
-        </div>
-        <div class="cf__field">
-          <label for="cf-email">E-Mail</label>
-          <input type="email" id="cf-email" name="email" placeholder="max@firma.de" required />
-        </div>
-        <div class="cf__field">
-          <label for="cf-project">Was brauchen Sie?</label>
-          <select id="cf-project" name="project">
-            <option value="">Wählen…</option>
-            <option>Website / Landing Page</option>
-              <option>Web-Applikation</option>
-              <option>E-Commerce</option>
-              <option>Redesign / Relaunch</option>
-              <option>Wartung &amp; Optimierung</option>
-          </select>
-        </div>
-        <div class="cf__field">
-          <label for="cf-msg">Ihr Projekt</label>
-          <textarea id="cf-msg" name="message" rows="4" placeholder="Schildern Sie uns Ihr Vorhaben…" required></textarea>
-        </div>
-        <button type="submit" class="cf__submit mag-btn" id="cfSubmit">
-          <span>Anfrage senden</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M5 12h14M13 6l6 6-6 6"/>
-          </svg>
-        </button>
-        <div class="cf__success" id="cfSuccess">
-          Vielen Dank — wir melden uns innerhalb von 24 Stunden bei Ihnen.
-        </div>        <div class="cf__error" id="cfError">
-          Fehler beim Senden — bitte versuche es erneut oder schreib uns direkt.
-        </div>      </form>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ░░░░░░░░░░░░░░░  FOOTER  ░░░░░░░░░░░░░░░ -->
+  <!-- ══ KONTAKT ═══════════════════════════════════ -->
+  <section class="section section--dark" id="kontakt">
+    <div class="wrap">
+      <h2 class="contact__big">Bauen wir <span>etwas.</span></h2>
+      <div class="contact">
+        <div class="contact__intro">
+          <p>Ein paar Sätze genügen. Wir melden uns innert 24 Stunden mit einer ersten Einschätzung, unverbindlich und kostenlos.</p>
+          <a href="mailto:sitearchitects.dn@gmail.com" class="contact__mail">sitearchitects.dn@gmail.com</a>
+        </div>
+
+        <form class="form" id="contactForm" novalidate>
+          <div class="form__row">
+            <label class="field">
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label class="field">
+              <span>E-Mail</span>
+              <input type="email" name="email" autocomplete="email" placeholder="name@firma.ch" required />
+            </label>
+          </div>
+          <label class="field">
+            <span>Worum geht es?</span>
+            <select name="project">
+              <option value="">Bitte wählen</option>
+              <option>Neue Website</option>
+              <option>Redesign einer bestehenden Website</option>
+              <option>Online-Shop</option>
+              <option>Betreuung und Anpassungen</option>
+              <option>Etwas anderes</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Nachricht</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="btn btn--accent" id="cfSubmit"><span>Nachricht senden</span></button>
+          <p class="form__status form__status--ok" id="cfSuccess" role="status">Danke für Ihre Nachricht. Wir melden uns innert 24 Stunden.</p>
+          <p class="form__status form__status--err" id="cfError" role="alert">Das Senden hat nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie direkt an sitearchitects.dn@gmail.com.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER als Plankopf ═══════════════════════ -->
 <footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__logo">
-      <img src="assets/img/logo.png" alt="Site Architects" />
-      <span>Site Architects</span>
+  <div class="wrap">
+    <div class="plankopf mono">
+      <div class="pk pk--brand"><span>Planverfasser</span><b>Site Architects</b></div>
+      <div class="pk"><span>Projekt</span><b>Ihre neue Website</b></div>
+      <div class="pk"><span>Massstab</span><b>1:1</b></div>
+      <div class="pk"><span>Datum</span><b id="pkDate">2026</b></div>
+      <div class="pk"><span>Plan Nr.</span><b>SA-01</b></div>
+      <div class="pk pk--links"><span>Rechtliches</span><b><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></b></div>
     </div>
-    <div class="footer__mid">
-      <span>Boutique Web-entwicklung — Schweiz</span>
-    </div>
-    <div class="footer__right">
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <span class="footer__year">© 2026 Site Architects</span>
-    </div>
+    <p class="footer__copy mono">© 2026 Site Architects · Webstudio aus der Schweiz</p>
   </div>
 </footer>
 
