@@ -19,8 +19,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script>
+    /* Intro nur beim ersten Besuch pro Sitzung */
+    try {
+      if (!sessionStorage.getItem('sa-intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('intro');
+        sessionStorage.setItem('sa-intro', '1');
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
+
+<div class="intro-screen" aria-hidden="true">
+  <div class="intro-screen__inner">
+    <svg class="intro-screen__mark" viewBox="0 0 24 24">
+      <path pathLength="1" d="M3 21V10l9-7 9 7v11" />
+      <path pathLength="1" d="M3 21h18" />
+      <path pathLength="1" d="M12 3v18" />
+    </svg>
+    <span class="intro-screen__name">Site Architects</span>
+    <span class="intro-screen__dim"><i></i><em class="mono">Massstab 1:1</em></span>
+  </div>
+</div>
 
 <header class="nav" id="nav">
   <div class="nav__inner">
@@ -56,7 +77,7 @@
       <span>Webstudio · Schweiz</span>
       <span>Plan Nr. SA-01</span>
     </div>
-    <h1 class="hero__title">Wir planen Websites <span class="hero__title-2">wie Gebäude.</span></h1>
+    <h1 class="hero__title"><span class="hero__title-1">Wir planen Websites</span> <span class="hero__title-2">wie Gebäude.</span></h1>
     <div class="hero__row">
       <p class="hero__lead">
         Erst der Plan, dann der Bau. Site Architects gestaltet und programmiert Websites
