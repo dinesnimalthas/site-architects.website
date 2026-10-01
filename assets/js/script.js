@@ -31,13 +31,24 @@ function updateBuild() {
   build.classList.toggle('done', pct >= 100);
 }
 
+/* Werdegang: Linie zeichnet sich beim Scrollen, Stationen leuchten auf */
+const timeline = document.getElementById('timeline');
+const tlItems  = [...timeline.children];
+
+function updateTimeline() {
+  const r = timeline.getBoundingClientRect();
+  const p = Math.min(Math.max((window.innerHeight * 0.75 - r.top) / r.height, 0), 1);
+  timeline.style.setProperty('--tl', p.toFixed(3));
+  tlItems.forEach(li => li.classList.toggle('on', li.offsetTop <= p * r.height));
+}
+
 let ticking = false;
 function onScroll() {
   if (ticking) return;
   ticking = true;
   requestAnimationFrame(() => {
     nav.classList.toggle('scrolled', window.scrollY > 8);
-    if (!reduceMotion) updateBuild();
+    if (!reduceMotion) { updateBuild(); updateTimeline(); }
     ticking = false;
   });
 }
@@ -68,8 +79,20 @@ if ('IntersectionObserver' in window && !reduceMotion) {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
   }, { rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('.section__head, .phase, .row, .faq, .contact > *, .contact__big')
+  document.querySelectorAll('.section__head, .about__body > p, .about__li, .about__cols > div, .phase, .row, .faq, .contact > *, .contact__big')
     .forEach(el => { el.classList.add('reveal'); io.observe(el); });
+}
+
+/* Porträt: wird beim Hineinscrollen vom Plan (s/w) zum Foto (Farbe) */
+const portrait = document.getElementById('portrait');
+if ('IntersectionObserver' in window && !reduceMotion) {
+  const pio = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    portrait.classList.add('in');
+    setTimeout(() => portrait.classList.add('done'), 1900);
+    pio.disconnect();
+  }, { threshold: 0.35 });
+  pio.observe(portrait);
 }
 
 /* Kontaktformular — Web3Forms, sendet an sitearchitects.dn@gmail.com */
