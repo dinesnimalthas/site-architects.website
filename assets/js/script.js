@@ -80,8 +80,37 @@ if ('IntersectionObserver' in window && !reduceMotion) {
     });
   }, { rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.section__head, .about__body > p, .about__li, .about__cols > div, .phase, .row, .faq, .contact > *, .contact__big')
-    .forEach(el => { el.classList.add('reveal'); io.observe(el); });
+    .forEach(el => {
+      // Geschwister in Gruppen (Phasen, Leistungen, Spalten) erscheinen gestaffelt
+      const group = el.matches('.phase, .row, .about__cols > div, .contact > *');
+      if (group) el.style.setProperty('--d', ([...el.parentElement.children].indexOf(el) % 5) * 70 + 'ms');
+      el.classList.add('reveal'); io.observe(el);
+    });
 }
+
+/* Navigation: aktuellen Abschnitt markieren */
+if ('IntersectionObserver' in window) {
+  const navLinks = [...document.querySelectorAll('.nav__links a, .mobile-menu a')];
+  const sections = [...new Set(navLinks.map(a => a.getAttribute('href')))]
+    .map(id => document.querySelector(id)).filter(Boolean);
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      navLinks.forEach(a => {
+        if (a.getAttribute('href') === '#' + e.target.id) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => spy.observe(s));
+}
+
+/* Plan → Bau auf dem Handy: Plan links ausrichten wie das Foto darunter */
+const planSvg = buildPlan.querySelector('svg');
+const narrow = window.matchMedia('(max-width: 760px)');
+function alignPlan() { planSvg.setAttribute('preserveAspectRatio', narrow.matches ? 'xMinYMin slice' : 'xMidYMid slice'); }
+alignPlan();
+narrow.addEventListener('change', alignPlan);
 
 /* Porträt: wird beim Hineinscrollen vom Plan (s/w) zum Foto (Farbe) */
 const portrait = document.getElementById('portrait');
@@ -103,6 +132,8 @@ const cfSuccess   = document.getElementById('cfSuccess');
 const cfError     = document.getElementById('cfError');
 const cfSubmit    = document.getElementById('cfSubmit');
 
+contactForm.addEventListener('input', e => e.target.removeAttribute('aria-invalid'));
+
 contactForm.addEventListener('submit', async e => {
   e.preventDefault();
 
@@ -111,9 +142,16 @@ contactForm.addEventListener('submit', async e => {
   const project = contactForm.elements.project.value;
   const message = contactForm.elements.message.value.trim();
 
-  if (!name)    { contactForm.elements.name.focus(); return; }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { contactForm.elements.email.focus(); return; }
-  if (!message) { contactForm.elements.message.focus(); return; }
+  const invalid = field => {
+    const el = contactForm.elements[field];
+    el.removeAttribute('aria-invalid');
+    void el.offsetWidth; // Animation neu starten, auch beim zweiten Versuch
+    el.setAttribute('aria-invalid', 'true');
+    el.focus();
+  };
+  if (!name)    return invalid('name');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return invalid('email');
+  if (!message) return invalid('message');
 
   cfSubmit.disabled = true;
   cfSubmit.querySelector('span').textContent = 'Wird gesendet…';
