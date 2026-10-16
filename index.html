@@ -363,8 +363,33 @@
             <p>Der nächste Plan kann Ihrer sein. Erzählen Sie uns, was Sie vorhaben.</p>
             <span class="btn btn--light">Projekt besprechen</span>
           </div>
-          <figure class="sheet__shot sheet__shot--empty" aria-hidden="true">
-            <svg viewBox="0 0 400 250" preserveAspectRatio="none"><rect x="1" y="1" width="398" height="248" /><path d="M1 1L399 249M399 1L1 249" /></svg>
+          <figure class="sheet__shot sheet__shot--plan" aria-hidden="true">
+            <svg class="draw-svg" data-draw viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <pattern id="grid-cta" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0v16" class="bp-grid" /></pattern>
+                <pattern id="hatch-cta" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v10" class="bp-grid" /></pattern>
+              </defs>
+              <rect width="400" height="250" fill="url(#grid-cta)" class="dp" />
+              <rect x="12" y="12" width="376" height="226" rx="6" class="bp-line" />
+              <path d="M12 38h376" class="bp-line" />
+              <rect x="22" y="19" width="12" height="12" rx="3" class="bp-line" />
+              <rect x="42" y="22" width="56" height="6" class="bp-block dp" />
+              <rect x="232" y="22" width="26" height="6" class="bp-block dp" />
+              <rect x="266" y="22" width="20" height="6" class="bp-block dp" />
+              <rect x="320" y="18" width="56" height="14" rx="7" class="bp-line" />
+              <rect x="26" y="62" width="168" height="86" class="bp-line" />
+              <path d="M26 62L194 148M194 62L26 148" class="bp-thin" />
+              <rect x="66" y="96" width="88" height="18" class="bp-bg dp" />
+              <text x="110" y="109" class="bp-label dp" text-anchor="middle">IHR PROJEKT</text>
+              <rect x="26" y="160" width="150" height="6" class="bp-block dp" />
+              <rect x="26" y="172" width="118" height="6" class="bp-block dp" />
+              <rect x="26" y="192" width="72" height="20" rx="10" class="bp-red bp-btn" />
+              <rect x="106" y="192" width="80" height="20" rx="10" class="bp-line" />
+              <rect x="214" y="62" width="162" height="150" rx="8" fill="url(#hatch-cta)" class="bp-line" />
+              <path d="M214 52h162M214 47v10M376 47v10" class="bp-red" />
+              <rect x="283" y="44" width="24" height="15" class="bp-bg dp" />
+              <text x="295" y="55" class="bp-dim dp" text-anchor="middle">?</text>
+            </svg>
           </figure>
         </a>
       </article>
@@ -450,24 +475,28 @@
 
       <ol class="phases">
         <li class="phase">
+          <svg class="phase__icon draw-svg" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="10" width="34" height="44" rx="2"/><path d="M18 20h20M18 27h22M18 34h14"/><path class="ic-red" d="M40 50l14-22 4 3-14 22-5 2z"/></svg>
           <span class="phase__code mono">Phase 1</span>
           <h3>Vorstudie</h3>
           <p>Erstgespräch zu Zielen, Zielgruppe und Inhalten. Wir schauen uns Ihre heutige Seite und Ihr Umfeld an.</p>
           <p class="phase__out mono">Ergebnis: Offerte mit Festpreis</p>
         </li>
         <li class="phase">
+          <svg class="phase__icon draw-svg" viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="14" width="48" height="40"/><path d="M8 32h22v22M30 32V14M42 32h14M30 43h10"/><path class="ic-red" d="M8 7h48M8 4v6M56 4v6"/></svg>
           <span class="phase__code mono">Phase 2</span>
           <h3>Projektierung</h3>
           <p>Struktur, Seitenplan und Design. Sie sehen früh, wie die Seite aussehen wird, und geben Feedback.</p>
           <p class="phase__out mono">Ergebnis: Freigegebener Entwurf</p>
         </li>
         <li class="phase">
+          <svg class="phase__icon draw-svg" viewBox="0 0 64 64" aria-hidden="true"><path d="M6 58h52M14 58V14M20 58V14M14 22l6-6M14 30l6-6M14 38l6-6M14 46l6-6M14 54l6-6"/><path d="M8 14h48M17 14V7L52 14M17 7L8 14M46 14v18"/><path class="ic-red" d="M46 32v3a3 3 0 1 1-3 3"/><rect x="37" y="44" width="16" height="12" rx="1"/></svg>
           <span class="phase__code mono">Phase 3</span>
           <h3>Realisierung</h3>
           <p>Programmierung von Hand, Inhalte einpflegen, auf allen Geräten testen und Ladezeiten optimieren.</p>
           <p class="phase__out mono">Ergebnis: Website online</p>
         </li>
         <li class="phase">
+          <svg class="phase__icon draw-svg" viewBox="0 0 64 64" aria-hidden="true"><circle cx="20" cy="32" r="11"/><circle cx="20" cy="32" r="3.5"/><path d="M31 32h25"/><path class="ic-red" d="M49 32v8M56 32v6"/></svg>
           <span class="phase__code mono">Phase 4</span>
           <h3>Bewirtschaftung</h3>
           <p>Updates, Anpassungen und neue Inhalte. Ein fester Ansprechpartner, der Ihre Website kennt.</p>
@@ -488,26 +517,31 @@
       <li class="row">
         <span class="row__num mono">A</span>
         <h3>Websites</h3>
+        <svg class="row__icon draw-svg" data-draw viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="12" width="48" height="40" rx="3"/><path d="M8 22h48M15 31h20M15 38h14M15 45h8"/><path class="ic-red" d="M14 17h.01M19 17h.01M24 17h.01"/><rect x="40" y="30" width="10" height="15" rx="1"/></svg>
         <p>Für Firmen, Vereine und Selbstständige. Individuell gestaltet, ohne Baukasten.</p>
       </li>
       <li class="row">
         <span class="row__num mono">B</span>
         <h3>Redesigns</h3>
+        <svg class="row__icon draw-svg" data-draw viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="18" width="30" height="24" rx="2"/><rect x="26" y="28" width="30" height="24" rx="2"/><path class="ic-red" d="M42 9a12 12 0 0 1 12 12m0 0l3.5-4.5m-3.5 4.5l-4.5-3.5"/></svg>
         <p>Ihre bestehende Seite, neu geplant. Wir behalten, was funktioniert, und bauen den Rest neu.</p>
       </li>
       <li class="row">
         <span class="row__num mono">C</span>
         <h3>Online-Shops</h3>
+        <svg class="row__icon draw-svg" data-draw viewBox="0 0 64 64" aria-hidden="true"><path d="M14 22h36l-3 32H17z"/><path d="M24 22v-4a8 8 0 0 1 16 0v4"/><path class="ic-red" d="M24 33a8 8 0 0 0 16 0"/></svg>
         <p>Übersichtliche Produktseiten und ein Bestellablauf, der nicht im Weg steht.</p>
       </li>
       <li class="row">
         <span class="row__num mono">D</span>
         <h3>SEO und Tempo</h3>
+        <svg class="row__icon draw-svg" data-draw viewBox="0 0 64 64" aria-hidden="true"><path d="M10 46a22 22 0 0 1 44 0"/><path d="M16 46h4M44 46h4M32 24v4M17.5 31.5l3 3M46.5 31.5l-3 3"/><path class="ic-red" d="M32 46l10-12"/><circle cx="32" cy="46" r="2.5"/></svg>
         <p>Saubere Struktur, Metadaten und kurze Ladezeiten, damit man Sie auf Google findet.</p>
       </li>
       <li class="row">
         <span class="row__num mono">E</span>
         <h3>Betreuung</h3>
+        <svg class="row__icon draw-svg" data-draw viewBox="0 0 64 64" aria-hidden="true"><path d="M41 10a10 10 0 0 0-9.5 13.5L12 43a4.2 4.2 0 0 0 6 6l19.5-19.5A10 10 0 0 0 51 20l-6 6-6-1.5-1.5-6z"/><path class="ic-red" d="M15 46h.01"/></svg>
         <p>Änderungen, Updates und neue Inhalte, auch lange nach dem Launch.</p>
       </li>
     </ul>

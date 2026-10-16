@@ -5,6 +5,27 @@
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* Plansymbole: jede Linie zeichnet sich, Flächen blenden ein */
+const canDraw = !reduceMotion && 'IntersectionObserver' in window;
+if (canDraw) {
+  document.documentElement.classList.add('js-draw');
+  document.querySelectorAll('.draw-svg').forEach(svg => {
+    [...svg.querySelectorAll('path, rect, circle, line, text')]
+      .filter(el => !el.closest('defs'))
+      .forEach((el, i) => {
+        el.style.setProperty('--i', i);
+        if (el.classList.contains('dp') || el.tagName === 'text') el.classList.add('dp');
+        else { el.setAttribute('pathLength', '1'); el.classList.add('ds'); }
+      });
+  });
+  const dio = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('is-drawn');
+    dio.unobserve(e.target);
+  }), { threshold: 0.5 });
+  document.querySelectorAll('[data-draw]').forEach(el => dio.observe(el));
+}
+
 /* Navigation: Linie beim Scrollen */
 const nav = document.getElementById('nav');
 
@@ -19,13 +40,24 @@ function updateTimeline() {
   tlItems.forEach(li => li.classList.toggle('on', li.offsetTop <= p * r.height));
 }
 
+/* Bauablauf: rote Linie füllt sich, Phasen und ihre Symbole schalten nacheinander ein */
+const phaseList = document.querySelector('.phases');
+const phaseItems = [...phaseList.children];
+
+function updatePhases() {
+  const r = phaseList.getBoundingClientRect();
+  const p = Math.min(Math.max((window.innerHeight * 0.85 - r.top) / (r.height + window.innerHeight * 0.25), 0), 1);
+  phaseList.style.setProperty('--ph', p.toFixed(3));
+  phaseItems.forEach((li, i) => li.classList.toggle('on', p >= (i + 0.25) / phaseItems.length));
+}
+
 let ticking = false;
 function onScroll() {
   if (ticking) return;
   ticking = true;
   requestAnimationFrame(() => {
     nav.classList.toggle('scrolled', window.scrollY > 8);
-    if (!reduceMotion) updateTimeline();
+    if (!reduceMotion) { updateTimeline(); if (canDraw) updatePhases(); }
     ticking = false;
   });
 }

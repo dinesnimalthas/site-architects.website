@@ -221,9 +221,18 @@ h3 { font-size:21px; letter-spacing:-.015em; line-height:1.25; }
 .sheet--cta .sheet__inner { background:var(--ink); color:#fff; border-color:var(--ink); }
 .sheet--cta .sheet__info p { color:#b7b4ad; margin-bottom:24px; max-width:32ch; }
 .sheet--cta .btn { align-self:flex-start; }
-.sheet__shot--empty { background:transparent; border:0; }
-.sheet__shot--empty svg { width:100%; height:100%; }
-.sheet__shot--empty rect, .sheet__shot--empty path { fill:none; stroke:#3a3a38; stroke-width:1; stroke-dasharray:6 6; vector-effect:non-scaling-stroke; }
+/* Leeres Planblatt für das nächste Projekt */
+.sheet__shot--plan { background:#181817; border-color:#2c2c2a; }
+.sheet__shot--plan svg { width:100%; height:100%; }
+.bp-grid  { fill:none; stroke:#262624; stroke-width:1; }
+.bp-line  { fill:none; stroke:#d9d6cf; stroke-width:1.4; stroke-opacity:.75; }
+.bp-thin  { fill:none; stroke:#3a3a38; stroke-width:1; }
+.bp-block { fill:#3a3a38; }
+.bp-bg    { fill:#181817; }
+.bp-red   { fill:none; stroke:var(--red); stroke-width:1.4; }
+.bp-btn   { fill:var(--red); fill-opacity:0; transition:fill-opacity .25s ease; }
+.bp-label { fill:#8f8c85; font:500 9.5px 'Geist Mono', monospace; letter-spacing:.08em; }
+.bp-dim   { fill:var(--red); font:500 10px 'Geist Mono', monospace; }
 
 /* ── Planverfasser ───────────────────────────────── */
 .about { display:grid; grid-template-columns:minmax(280px, 5fr) 7fr; gap:clamp(40px, 6vw, 96px); align-items:start; }
@@ -277,10 +286,18 @@ h3 { font-size:21px; letter-spacing:-.015em; line-height:1.25; }
 .contact__intro a { margin-right:24px; }
 
 /* ── Phasen ──────────────────────────────────────── */
-.phases { display:grid; grid-template-columns:repeat(4, 1fr); border-top:1px solid var(--ink); counter-reset:ph; }
+.phases { position:relative; display:grid; grid-template-columns:repeat(4, 1fr); border-top:1px solid var(--ink); counter-reset:ph; }
+/* Fortschritt des Bauablaufs, füllt sich beim Scrollen */
+.js-draw .phases::after { content:''; position:absolute; left:0; right:0; top:-1.5px; height:2px; background:var(--red); transform:scaleX(var(--ph, 0)); transform-origin:left; }
+.phase__icon { width:56px; height:56px; margin-bottom:18px; fill:none; stroke:var(--ink); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; overflow:visible; }
+.phase__icon .ic-red, .row__icon .ic-red { stroke:var(--red); }
 .phase { position:relative; padding:36px 28px 8px 0; display:flex; flex-direction:column; }
 .phase + .phase { padding-left:28px; border-left:1px solid var(--line); }
-.phase::before { content:''; position:absolute; top:-5px; left:0; width:9px; height:9px; background:var(--red); border-radius:50%; }
+.phase::before { content:''; position:absolute; top:-5px; left:0; width:9px; height:9px; background:var(--red); border-radius:50%; z-index:1; transition:background-color .3s ease, transform .3s var(--ease-out); }
+.js-draw .phase::before { background:var(--paper-2); box-shadow:inset 0 0 0 1.5px var(--red); }
+.js-draw .phase.on::before { background:var(--red); transform:scale(1.25); }
+.phase__code { transition:color .3s ease; }
+.js-draw .phase:not(.on) .phase__code { color:var(--muted); }
 .phase + .phase::before { left:-5px; }
 .phase__code { color:var(--red); margin-bottom:14px; }
 .phase h3 { font-size:26px; letter-spacing:-.03em; margin-bottom:12px; }
@@ -290,12 +307,13 @@ h3 { font-size:21px; letter-spacing:-.015em; line-height:1.25; }
 /* ── Leistungen: grosse Zeilen ───────────────────── */
 .rows { border-top:1px solid var(--ink); }
 .row {
-  display:grid; grid-template-columns:60px 1fr 1fr; gap:24px; align-items:center;
+  display:grid; grid-template-columns:60px minmax(0,1fr) minmax(0,1fr) 64px; gap:24px; align-items:center;
   padding:clamp(20px, 2.6vw, 32px) 0; border-bottom:1px solid var(--line);
 }
 .row__num { color:var(--muted); transition:color .2s ease; }
 .row h3 { font-size:clamp(30px, 4.6vw, 64px); letter-spacing:-.045em; line-height:1; transition:color .2s ease, transform .35s var(--ease-out); }
-.row p { color:var(--ink-2); max-width:44ch; }
+.row p { grid-column:3; grid-row:1; color:var(--ink-2); max-width:44ch; }
+.row__icon { grid-column:4; grid-row:1; width:56px; height:56px; justify-self:end; fill:none; stroke:var(--ink); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; overflow:visible; transition:transform .35s var(--ease-out); }
 
 /* ── FAQ ─────────────────────────────────────────── */
 .faq-wrap { display:grid; grid-template-columns:1fr 1.4fr; gap:clamp(40px, 6vw, 96px); }
@@ -359,6 +377,12 @@ h3 { font-size:21px; letter-spacing:-.015em; line-height:1.25; }
 .pk a { transition:color .2s ease; }
 .footer__copy { margin-top:18px; font-size:11px; color:#8a8780; }
 
+/* ── Plansymbole zeichnen sich ───────────────────── */
+.js-draw .draw-svg .ds { stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset .9s var(--ease-in-out); transition-delay:calc(var(--i, 0) * 50ms + var(--d, 0ms)); }
+.js-draw .draw-svg .dp { opacity:0; transition:opacity .45s ease; transition-delay:calc(var(--i, 0) * 50ms + var(--d, 0ms) + 250ms); }
+.js-draw .is-drawn .ds, .js-draw .phase.on .ds { stroke-dashoffset:0; }
+.js-draw .is-drawn .dp, .js-draw .phase.on .dp { opacity:1; }
+
 /* ── Hover nur mit Maus (verhindert "klebende" Zustände auf Touch) ── */
 @media (hover:hover) and (pointer:fine) {
   .btn--dark:hover   { background:var(--red); }
@@ -372,6 +396,8 @@ h3 { font-size:21px; letter-spacing:-.015em; line-height:1.25; }
   .sheet--cta .sheet__inner:hover .btn { background:var(--red); color:#fff; }
   .row:hover h3 { color:var(--red); transform:translateX(10px); }
   .row:hover .row__num { color:var(--red); }
+  .row:hover .row__icon { transform:translateX(-6px) rotate(-4deg); }
+  .sheet--cta .sheet__inner:hover .bp-btn { fill-opacity:.9; }
   .faq summary:hover { color:var(--red); }
   .contact__li:hover, .contact__mail:hover, .pk a:hover { color:var(--red); }
 }
@@ -437,6 +463,7 @@ html.intro { --hero-d:1.35s; }
   .faq details p { transform:none; }
   .field [aria-invalid="true"] { animation:none; }
   .mobile-menu, .mobile-menu a { animation:none !important; }
+  .row__icon { transition:none; }
 }
 
 /* ── Rechtliche Seiten ───────────────────────────── */
@@ -457,6 +484,7 @@ html.intro { --hero-d:1.35s; }
   .phase:nth-child(3) { padding-left:0; border-left:0; }
   .phase:nth-child(3)::before { left:0; }
   .phase:nth-child(n+3) { border-top:1px solid var(--line); margin-top:8px; }
+  .js-draw .phases::after { display:none; }
   .plankopf { grid-template-columns:repeat(3, 1fr); }
   .faq-wrap, .contact { grid-template-columns:1fr; }
   .about { grid-template-columns:1fr; }
@@ -497,14 +525,19 @@ html.intro { --hero-d:1.35s; }
   .sheet__info h3 { padding-bottom:16px; }
   .sheet { top:calc(var(--nav-h) + 12px + var(--i, 0) * 10px); }
 
-  .phases { grid-template-columns:1fr; }
+  .phases { grid-template-columns:1fr; padding-left:28px; }
   .phase, .phase + .phase { padding:28px 0 24px; border-left:0; }
   .phase + .phase { border-top:1px solid var(--line); margin-top:0; }
-  .phase::before, .phase + .phase::before { left:0; }
+  .phase::before, .phase + .phase::before { left:-28px; top:46px; }
+  /* senkrechte Bauachse links, füllt sich von oben */
+  .phases::before { content:''; position:absolute; left:4px; top:0; bottom:0; width:1px; background:var(--line); }
+  .js-draw .phases::after { display:block; left:3.5px; right:auto; top:0; bottom:0; width:2px; height:auto; transform:scaleY(var(--ph, 0)); transform-origin:top; }
+  .phase__icon { width:48px; height:48px; margin-bottom:14px; }
   .phase__out { padding-top:16px; }
 
-  .row { grid-template-columns:32px 1fr; gap:4px 12px; align-items:baseline; }
-  .row p { grid-column:2; margin-top:10px; }
+  .row { grid-template-columns:32px minmax(0,1fr) 44px; gap:4px 12px; align-items:center; }
+  .row p { grid-column:2 / -1; grid-row:2; margin-top:6px; }
+  .row__icon { grid-column:3; grid-row:1; width:40px; height:40px; }
 
   .form__row { grid-template-columns:1fr; }
   .about__cols { grid-template-columns:1fr; }
