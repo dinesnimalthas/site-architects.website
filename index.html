@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Site Architects ist ein Webstudio aus der Schweiz. Wir planen Websites wie Gebäude: erst der Plan, dann der Bau." />
+  <meta name="description" content="Site Architects – Webdesign aus Luzern. Websites für KMU, Vereine und Selbstständige in der Zentralschweiz, individuell gestaltet und von Hand programmiert." />
 
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://sitearchitects.ch/" />
-  <meta property="og:title"       content="Site Architects – Webstudio aus der Schweiz" />
+  <meta property="og:title"       content="Site Architects – Webdesign aus Luzern" />
   <meta property="og:description" content="Wir planen Websites wie Gebäude. Individuell gestaltet und von Hand programmiert für KMU, Vereine und Selbstständige." />
-  <meta name="twitter:title"       content="Site Architects – Webstudio aus der Schweiz" />
+  <meta name="twitter:title"       content="Site Architects – Webdesign aus Luzern" />
   <meta name="twitter:description" content="Wir planen Websites wie Gebäude. Individuell gestaltet und von Hand programmiert." />
   <meta property="og:site_name"    content="Site Architects" />
   <meta property="og:image"        content="https://sitearchitects.ch/assets/img/og-image.png?v=1" />
@@ -20,13 +20,34 @@
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:image"       content="https://sitearchitects.ch/assets/img/og-image.png?v=1" />
 
-  <title>Site Architects – Webstudio aus der Schweiz</title>
+  <title>Site Architects – Webdesign aus Luzern, Schweiz</title>
   <link rel="canonical" href="https://sitearchitects.ch/" />
   <link rel="icon" href="assets/img/favicon.svg?v=2" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico?v=2" sizes="any" />
   <link rel="icon" href="assets/img/icon-180.png?v=2" type="image/png" sizes="180x180" />
   <link rel="apple-touch-icon" href="assets/img/icon-180.png" />
   <meta name="theme-color" content="#f3f1ec" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Site Architects",
+    "description": "Webdesign und Webentwicklung aus Luzern für KMU, Vereine und Selbstständige.",
+    "url": "https://sitearchitects.ch/",
+    "logo": "https://sitearchitects.ch/assets/img/icon-512.png",
+    "image": "https://sitearchitects.ch/assets/img/og-image.png",
+    "email": "sitearchitects.dn@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Luzern", "addressRegion": "LU", "addressCountry": "CH" },
+    "areaServed": [
+      { "@type": "City", "name": "Luzern" },
+      { "@type": "AdministrativeArea", "name": "Zentralschweiz" },
+      { "@type": "Country", "name": "Schweiz" }
+    ],
+    "founder": { "@type": "Person", "name": "Dines Nimalthas", "sameAs": "https://www.linkedin.com/in/dines-nimalthas-b06981230" },
+    "knowsAbout": ["Webdesign", "Webentwicklung", "Redesign", "Online-Shops", "SEO"],
+    "sameAs": ["https://www.linkedin.com/in/dines-nimalthas-b06981230"]
+  }
+  </script>
   <link rel="stylesheet" href="assets/css/fonts.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <script>
@@ -86,14 +107,14 @@
   <!-- ══ HERO ══════════════════════════════════════ -->
   <section class="hero wrap">
     <div class="hero__meta mono">
-      <span>Webstudio · Schweiz</span>
+      <span>Webdesign · Luzern</span>
       <span>Plan Nr. SA-01</span>
     </div>
     <h1 class="hero__title"><span class="hero__title-1">Wir planen Websites</span> <span class="hero__title-2">wie Gebäude.</span></h1>
     <div class="hero__row">
       <p class="hero__lead">
         Erst der Plan, dann der Bau. Site Architects gestaltet und programmiert Websites
-        für KMU, Vereine und Selbstständige. Sie sprechen direkt mit der Person, die Ihre Seite baut.
+        für KMU, Vereine und Selbstständige in Luzern und der ganzen Schweiz. Sie sprechen direkt mit der Person, die Ihre Seite baut.
       </p>
       <div class="hero__actions">
         <a href="#kontakt" class="btn btn--dark">Projekt besprechen</a>
@@ -102,21 +123,26 @@
     </div>
   </section>
 
-  <!-- ══ PLAN → BAU (scroll) ═══════════════════════ -->
+  <!-- ══ PLAN → BAU (baut sich selbst) ═════════════ -->
   <section class="build" id="build" aria-label="Vom Plan zur fertigen Website am Beispiel SNP Performance">
-    <div class="build__sticky">
+    <div class="build__stage">
       <div class="wrap build__bar mono">
         <span class="build__phase"><i class="build__dot"></i>Phase: <b id="buildPhase">Plan</b></span>
         <span class="build__progress"><span id="buildPct">0</span>% gebaut</span>
+        <button class="build__replay mono" id="buildReplay" type="button" hidden>↻ Nochmal bauen</button>
         <span class="build__ref">Beispiel: snpperformance.ch</span>
       </div>
 
       <div class="wrap">
+        <div class="build__site">
         <div class="build__frame" id="buildFrame">
-          <img class="build__real" src="assets/img/work/snpperformance.jpg" alt="Fertige Website von SNP Performance" width="1440" height="900" />
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/img/work/snpperformance-mobile.jpg" width="390" height="624" />
+            <img class="build__real" id="buildReal" src="assets/img/work/snpperformance.jpg" alt="Fertige Website von SNP Performance" width="1440" height="900" />
+          </picture>
 
           <div class="build__plan" id="buildPlan" aria-hidden="true">
-            <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+            <svg class="plan-desk" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMin slice">
               <defs>
                 <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
                   <path d="M24 0H0v24" class="p-grid" />
@@ -189,9 +215,81 @@
               <g class="p-callout"><circle cx="1320" cy="300" r="16" /><text x="1320" y="306" text-anchor="middle">D</text></g>
               <text x="1346" y="306" class="p-note">Bild</text>
             </svg>
+
+            <!-- Plan der Handy-Ansicht -->
+            <svg class="plan-mob" viewBox="0 0 390 624" preserveAspectRatio="xMidYMin slice">
+              <defs>
+                <pattern id="grid-m" width="16" height="16" patternUnits="userSpaceOnUse">
+                  <path d="M16 0H0v16" class="p-grid" />
+                </pattern>
+                <pattern id="hatch-m" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <path d="M0 0v10" class="p-hatch" />
+                </pattern>
+                <marker id="tick-m" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+                  <path d="M2 8L8 2" class="p-dim" />
+                </marker>
+              </defs>
+
+              <rect width="390" height="624" class="p-paper" />
+              <rect width="390" height="624" fill="url(#grid-m)" />
+
+              <!-- Navigation -->
+              <line x1="0" y1="66" x2="390" y2="66" class="p-line" />
+              <rect x="18" y="13" width="40" height="40" rx="9" class="p-line" />
+              <rect x="68" y="24" width="150" height="18" class="p-block" />
+              <path d="M342 25h22M342 33h22M342 41h22" class="p-line" />
+
+              <!-- Bildfläche mit Karte -->
+              <rect x="20" y="128" width="350" height="195" rx="24" fill="url(#hatch-m)" class="p-line" />
+              <rect x="40" y="244" width="310" height="60" rx="14" class="p-paper" />
+              <rect x="40" y="244" width="310" height="60" rx="14" class="p-line" />
+              <rect x="58" y="262" width="130" height="11" class="p-block" />
+              <rect x="58" y="281" width="170" height="9" class="p-block" />
+              <rect x="146" y="172" width="98" height="24" class="p-paper" />
+              <text x="195" y="189" class="p-label" text-anchor="middle">BILDFLÄCHE</text>
+
+              <!-- Masslinie Bild -->
+              <line x1="20" y1="110" x2="370" y2="110" class="p-dim" marker-start="url(#tick-m)" marker-end="url(#tick-m)" />
+              <line x1="20" y1="102" x2="20" y2="118" class="p-dim" />
+              <line x1="370" y1="102" x2="370" y2="118" class="p-dim" />
+              <rect x="177" y="100" width="36" height="20" class="p-paper" />
+              <text x="195" y="114" class="p-dimtext" text-anchor="middle">350</text>
+
+              <!-- Eyebrow + Headline -->
+              <rect x="20" y="362" width="24" height="4" class="p-block p-block--accent" />
+              <rect x="54" y="358" width="236" height="11" class="p-block p-block--accent" />
+              <rect x="20" y="392" width="210" height="176" class="p-line" />
+              <path d="M20 392L230 568M230 392L20 568" class="p-thin" />
+              <rect x="95" y="470" width="60" height="20" class="p-paper" />
+              <text x="125" y="484" class="p-label" text-anchor="middle">H1</text>
+
+              <line x1="20" y1="590" x2="230" y2="590" class="p-dim" marker-start="url(#tick-m)" marker-end="url(#tick-m)" />
+              <rect x="107" y="580" width="36" height="20" class="p-paper" />
+              <text x="125" y="594" class="p-dimtext" text-anchor="middle">210</text>
+
+              <circle cx="343" cy="569" r="23" class="p-line" />
+
+              <!-- Positionsmarken -->
+              <g class="p-callout"><circle cx="250" cy="44" r="11" /><text x="250" y="48" text-anchor="middle">A</text></g>
+              <text x="266" y="48" class="p-note">Nav</text>
+              <g class="p-callout"><circle cx="44" cy="152" r="11" /><text x="44" y="156" text-anchor="middle">B</text></g>
+              <text x="60" y="156" class="p-note">Bild</text>
+              <g class="p-callout"><circle cx="250" cy="410" r="11" /><text x="250" y="414" text-anchor="middle">C</text></g>
+              <text x="266" y="414" class="p-note">Headline</text>
+            </svg>
           </div>
 
-          <div class="build__scan" id="buildScan" aria-hidden="true"><span class="mono">Plan → Bau</span></div>
+        </div>
+        <div class="build__fx" id="buildFx" aria-hidden="true">
+          <div class="hammer" id="hammer">
+            <svg viewBox="0 0 100 100">
+              <rect class="hammer__handle" x="56" y="24" width="8" height="76" rx="3" />
+              <rect class="hammer__grip" x="54.5" y="78" width="11" height="22" rx="3.5" />
+              <path class="hammer__head" d="M33 8h47c4 0 8-2 11-6 3 6 1 14-5 19-2 2-4 4-6 9H33z" />
+              <rect class="hammer__face" x="26" y="6" width="9" height="26" rx="2" />
+            </svg>
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -499,7 +597,7 @@
       <div class="pk"><span>Plan Nr.</span><b>SA-01</b></div>
       <div class="pk pk--links"><span>Rechtliches</span><b><a href="datenschutz.html">Datenschutz</a></b></div>
     </div>
-    <p class="footer__copy mono">© 2026 Site Architects · Webstudio aus der Schweiz</p>
+    <p class="footer__copy mono">© 2026 Site Architects · Webdesign aus Luzern</p>
   </div>
 </footer>
 
