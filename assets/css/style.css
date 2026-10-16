@@ -199,6 +199,11 @@ h3 { font-size:21px; letter-spacing:-.015em; line-height:1.25; }
 .sheet__inner:active { transform:scale(.995); }
 .sheet__inner { transition:transform .16s var(--ease-out); }
 
+/* Kundenstimme als Abnahme-Notiz auf dem Planblatt */
+.sheet__quote { margin:0 0 24px; padding-left:16px; border-left:2px solid var(--red); }
+.sheet__quote p { font-size:16.5px; line-height:1.5; letter-spacing:-.01em; color:var(--ink); }
+.sheet__quote p::before { content:'«'; } .sheet__quote p::after { content:'»'; }
+.sheet__quote footer { margin-top:10px; font-size:11px; color:var(--muted); }
 .titleblock { border-top:1px solid var(--ink); }
 .titleblock div { display:grid; grid-template-columns:96px 1fr; gap:12px; padding:10px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
 .titleblock dt { font-family:'Geist Mono', monospace; font-size:11.5px; text-transform:uppercase; color:var(--muted); padding-top:2px; }
