@@ -235,8 +235,8 @@ h3 { font-size:21px; letter-spacing:-.015em; line-height:1.25; }
 .bp-dim   { fill:var(--red); font:500 10px 'Geist Mono', monospace; }
 
 /* ── Planverfasser ───────────────────────────────── */
-.about { display:grid; grid-template-columns:minmax(280px, 5fr) 7fr; gap:clamp(40px, 6vw, 96px); align-items:start; }
-.portrait { position:sticky; top:calc(var(--nav-h) + 32px); margin:0; padding:18px 0 0 18px; }
+.about { display:grid; grid-template-columns:minmax(240px, 4fr) 8fr; gap:clamp(40px, 7vw, 112px); align-items:start; }
+.portrait { position:sticky; top:calc(var(--nav-h) + 32px); margin:0; padding:18px 0 0 18px; max-width:340px; }
 .portrait__frame { position:relative; aspect-ratio:4 / 5; }
 .portrait__frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:4px; }
 .portrait__plan { filter:grayscale(1) contrast(1.15) brightness(1.05); opacity:.9; }
@@ -259,27 +259,19 @@ h3 { font-size:21px; letter-spacing:-.015em; line-height:1.25; }
 .portrait figcaption { display:flex; justify-content:space-between; gap:12px; margin-top:22px; padding-top:12px; border-top:1px solid var(--ink); color:var(--muted); }
 .portrait figcaption span:first-child { color:var(--ink); }
 
-.about__body { padding-top:6px; }
+.about__body { padding-top:6px; max-width:680px; }
 .about__body > p { color:var(--ink-2); max-width:58ch; margin-bottom:18px; font-size:17.5px; }
 .about__body > .about__lead { font-size:clamp(22px, 2.2vw, 30px); line-height:1.3; letter-spacing:-.025em; color:var(--ink); margin-bottom:28px; }
-.about__li { margin-top:10px; height:44px; padding:0 20px; font-size:15px; }
+.about__li { height:44px; padding:0 20px; font-size:15px; }
 .about__li svg { width:16px; height:16px; fill:currentColor; }
-.about__cols { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:clamp(48px, 6vw, 72px); }
-.about__h { color:var(--red); margin-bottom:16px; font-weight:500; letter-spacing:.02em; }
-
-.timeline { position:relative; padding-left:24px; }
-.timeline::before { content:''; position:absolute; left:3px; top:6px; bottom:6px; width:1px; background:var(--ink); transform-origin:top; transform:scaleY(var(--tl, 0)); }
-.timeline li { position:relative; display:flex; flex-direction:column; gap:2px; padding-bottom:22px; opacity:.25; transition:opacity .5s var(--ease); }
-.timeline li.on { opacity:1; }
-.timeline li::before { content:''; position:absolute; left:-25px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--paper); border:1.5px solid var(--ink); transition:background .3s, border-color .3s; }
-.timeline li.on::before { background:var(--red); border-color:var(--red); }
-.timeline span { color:var(--muted); font-size:11px; font-variant-numeric:tabular-nums; }
-.timeline b { font-weight:500; font-size:16.5px; letter-spacing:-.01em; line-height:1.3; }
-.timeline em { font-style:normal; color:var(--ink-2); font-size:14.5px; }
-
-.materials { border-top:1px solid var(--ink); }
-.materials div { display:grid; grid-template-columns:108px 1fr; gap:12px; padding:11px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
-.materials dt { font-family:'Geist Mono', monospace; font-size:11px; text-transform:uppercase; color:var(--muted); padding-top:3px; }
+/* Drei Gründe statt Lebenslauf */
+.perks { margin-top:clamp(28px, 4vw, 44px); border-top:1px solid var(--ink); }
+.perk { display:grid; grid-template-columns:56px minmax(0,1fr); gap:20px; align-items:start; padding:22px 0; border-bottom:1px solid var(--line); }
+.perk__icon { width:48px; height:48px; fill:none; stroke:var(--ink); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; overflow:visible; }
+.perk__icon .ic-red { stroke:var(--red); }
+.perk h3 { font-size:22px; letter-spacing:-.02em; margin-bottom:6px; }
+.perk p { color:var(--ink-2); max-width:52ch; }
+.about__li { margin-top:28px; }
 
 .contact__li { display:inline-block; margin:14px 0 0 0; color:#b7b4ad; font-size:16px; }
 .contact__li { transition:color .2s ease; }
@@ -456,9 +448,6 @@ html.intro { --hero-d:1.35s; }
   .sheet { position:static; }
   .portrait__real { clip-path:none; transition:none; }
   .portrait__scan { display:none; }
-  .timeline::before { transform:none; }
-  .timeline li { opacity:1; }
-  .timeline li::before { background:var(--red); border-color:var(--red); }
   .row h3, .sheet__shot img, .titleblock .arr { transform:none !important; }
   .faq details p { transform:none; }
   .field [aria-invalid="true"] { animation:none; }
@@ -488,7 +477,7 @@ html.intro { --hero-d:1.35s; }
   .plankopf { grid-template-columns:repeat(3, 1fr); }
   .faq-wrap, .contact { grid-template-columns:1fr; }
   .about { grid-template-columns:1fr; }
-  .portrait { position:relative; top:0; max-width:420px; }
+  .portrait { position:relative; top:0; max-width:320px; }
 }
 
 @media (max-width: 760px) {
@@ -540,8 +529,10 @@ html.intro { --hero-d:1.35s; }
   .row__icon { grid-column:3; grid-row:1; width:40px; height:40px; }
 
   .form__row { grid-template-columns:1fr; }
-  .about__cols { grid-template-columns:1fr; }
-  .portrait { max-width:none; }
+  .portrait { max-width:260px; }
+  .perk { grid-template-columns:44px minmax(0,1fr); gap:14px; padding:18px 0; }
+  .perk__icon { width:40px; height:40px; }
+  .perk h3 { font-size:20px; }
   .form .btn { align-self:stretch; }
   .plankopf { grid-template-columns:1fr 1fr; }
   .pk--brand, .pk--links { grid-column:1 / -1; }

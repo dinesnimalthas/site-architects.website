@@ -29,17 +29,6 @@ if (canDraw) {
 /* Navigation: Linie beim Scrollen */
 const nav = document.getElementById('nav');
 
-/* Werdegang: Linie zeichnet sich beim Scrollen, Stationen leuchten auf */
-const timeline = document.getElementById('timeline');
-const tlItems  = [...timeline.children];
-
-function updateTimeline() {
-  const r = timeline.getBoundingClientRect();
-  const p = Math.min(Math.max((window.innerHeight * 0.75 - r.top) / r.height, 0), 1);
-  timeline.style.setProperty('--tl', p.toFixed(3));
-  tlItems.forEach(li => li.classList.toggle('on', li.offsetTop <= p * r.height));
-}
-
 /* Bauablauf: rote Linie füllt sich, Phasen und ihre Symbole schalten nacheinander ein */
 const phaseList = document.querySelector('.phases');
 const phaseItems = [...phaseList.children];
@@ -57,7 +46,7 @@ function onScroll() {
   ticking = true;
   requestAnimationFrame(() => {
     nav.classList.toggle('scrolled', window.scrollY > 8);
-    if (!reduceMotion) { updateTimeline(); if (canDraw) updatePhases(); }
+    if (canDraw) updatePhases();
     ticking = false;
   });
 }
@@ -88,10 +77,10 @@ if ('IntersectionObserver' in window && !reduceMotion) {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
   }, { rootMargin: '0px 0px -8% 0px' });
-  document.querySelectorAll('.section__head, .about__body > p, .about__li, .about__cols > div, .phase, .row, .faq, .contact > *, .contact__big')
+  document.querySelectorAll('.section__head, .about__body > p, .about__li, .perk, .phase, .row, .faq, .contact > *, .contact__big')
     .forEach(el => {
       // Geschwister in Gruppen (Phasen, Leistungen, Spalten) erscheinen gestaffelt
-      const group = el.matches('.phase, .row, .about__cols > div, .contact > *');
+      const group = el.matches('.phase, .row, .perk, .contact > *');
       if (group) el.style.setProperty('--d', ([...el.parentElement.children].indexOf(el) % 5) * 70 + 'ms');
       el.classList.add('reveal'); io.observe(el);
     });
