@@ -177,6 +177,7 @@ function drawCrane() {
   d += `M${ax} ${apexY}L${tipX + (towerX - tipX) * .3} ${jibY}M${ax} ${apexY}L${tailX} ${jibY}`;
   d += `M${towerX - tw * .7} ${bottom}H${towerX + tw * 1.7}`;
   crane.innerHTML = `<svg width="${W}" height="${bottom + 2}" viewBox="0 0 ${W} ${bottom + 2}">
+    <path class="crane__halo" d="${d}" />
     <path class="crane__lines" d="${d}" />
     <rect class="crane__cab" x="${towerX - tw * 1.15}" y="${top}" width="${tw * 1.15}" height="${tw}" rx="2" />
     <rect class="crane__weight" x="${tailX - tw * 1.5}" y="${top}" width="${tw * 1.4}" height="${tw * 1.1}" rx="1" />
@@ -191,6 +192,7 @@ function drawRig() {
   rig.innerHTML = `<svg width="${W}" height="${h}" viewBox="0 0 ${W} ${h}">
     <rect class="crane__block" x="${cx - 6}" y="0" width="12" height="9" rx="2" />
     <path class="crane__hook" d="M${cx} 9v5a5 5 0 1 1-5 5" />
+    <path class="crane__halo crane__halo--thin" d="M${cx} ${hookH}L${fx + fw * .1} ${h}M${cx} ${hookH}L${fx + fw * .9} ${h}" />
     <path class="crane__sling" d="M${cx} ${hookH}L${fx + fw * .1} ${h}M${cx} ${hookH}L${fx + fw * .9} ${h}" />
   </svg>`;
   cable.style.translate = `${cx - .75}px ${g.cableTop}px`;
